@@ -85,45 +85,39 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.article
       layout
-      initial={{ opacity: 0, y: 14 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.34, delay: Math.min(index * 0.035, 0.2) }}
+      exit={{ opacity: 0, y: 8 }}
+      transition={{ duration: 0.32, delay: Math.min(index * 0.025, 0.15) }}
       className="project-card"
     >
-      <div
-        className={`project-image${imageFailed ? " project-image-fallback" : ""}`}
-        style={{ backgroundImage: imageFailed ? undefined : `linear-gradient(180deg, rgba(15,20,23,.02), rgba(15,20,23,.16)), url("${project.image}")` }}
-        role="img"
-        aria-label={project.imageAlt}
-      >
+      <div className={`project-image${imageFailed ? " project-image-fallback" : ""}`}>
+        {!imageFailed ? (
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            unoptimized
+            className="project-image-media"
+            onError={() => setImageFailed(true)}
+          />
+        ) : (
+          <div className="project-image-fallback-content" aria-hidden="true">
+            <span>{project.category}</span>
+            <strong>{project.title}</strong>
+          </div>
+        )}
         <div className="project-image-topline">
           <span className={`project-kind ${project.kind === "Selected work" ? "project-kind-real" : ""}`}>
-            {project.kind === "Selected work" ? "Selected work" : "Concept"}
+            {project.kind === "Selected work" ? "Selected work" : "Concept demo"}
           </span>
           <span className="project-year">{project.year}</span>
         </div>
-        <span className="project-image-mark" style={{ backgroundColor: project.accent }} />
-        {!imageFailed && (
-          <Image
-            src={project.image}
-            alt=""
-            width={1}
-            height={1}
-            unoptimized
-            className="image-load-check"
-            onError={() => setImageFailed(true)}
-          />
-        )}
       </div>
       <div className="project-card-body">
-        <div className="project-card-heading">
-          <div>
-            <p className="eyebrow project-category">{project.category}</p>
-            <h3>{project.title}</h3>
-          </div>
-          <span className="project-arrow" aria-hidden="true"><ArrowUpRight /></span>
-        </div>
+        <p className="project-category">{project.category}</p>
+        <h3>{project.title}</h3>
         <p className="project-description">{project.description}</p>
         <div className="tag-list">
           {project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
@@ -132,7 +126,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     </motion.article>
   );
 }
-
 function CurrencyPricing() {
   const [currency, setCurrency] = useState<CurrencyCode>("BWP");
   const [rates, setRates] = useState<Record<string, number> | null>(null);
@@ -275,7 +268,7 @@ export default function Portfolio() {
     <main>
       <header className="site-header">
         <a className="wordmark" href="#home" aria-label="Onkemetse home" onClick={() => setMobileMenuOpen(false)}>
-          onkemetse<span>.</span>
+          Onkemetse <span>Khavara</span>
         </a>
         <nav className={`main-nav${mobileMenuOpen ? " main-nav-open" : ""}`} aria-label="Main navigation">
           {navItems.map((item) => (
@@ -296,36 +289,43 @@ export default function Portfolio() {
       <section className="hero-section page-section" id="home">
         <div className="hero-content">
           <Reveal>
-            <div className="availability"><span className="availability-dot" /> Independent developer · Botswana · Open to projects worldwide</div>
-            <p className="hero-kicker">DESIGN · DEVELOPMENT · SOFTWARE</p>
-            <h1>I build digital things <em>that feel right.</em></h1>
-            <p className="hero-copy">I&apos;m Onkemetse Khavara, a developer interested in the space where thoughtful design meets useful technology. I build websites, applications and software experiences for people with something worth putting online.</p>
+            <p className="hero-kicker">ONKEMETSE KHAVARA · INDEPENDENT DEVELOPER</p>
+            <h1>I start with a question. <em>Then I build.</em></h1>
+            <p className="hero-copy">I&apos;m Onkemetse, a developer based in Botswana. I work on websites, applications and software, with a particular interest in how things work beneath the surface.</p>
             <div className="hero-actions">
-              <a className="button button-dark" href="#work">Explore my work <ArrowUpRight /></a>
-              <a className="text-link" href="#about">A little about me <ArrowRight /></a>
+              <a className="button button-dark" href="#work">See what I&apos;ve built <ArrowUpRight /></a>
+              <a className="text-link" href="#about">Get to know me <ArrowRight /></a>
             </div>
             <div className="hero-meta">
-              <span>Based in Francistown, Botswana</span>
-              <span>Open to projects worldwide</span>
+              <span>Francistown, Botswana</span>
+              <span>Available for projects worldwide</span>
             </div>
           </Reveal>
         </div>
-        <Reveal delay={0.12} className="hero-visual-wrap">
-          <div className="hero-visual">
-            <div className="hero-photo" role="img" aria-label="Modern architectural hotel interior" />
-            <div className="hero-photo-shade" />
-            <div className="hero-visual-top"><span>SELECTED DIRECTION / 001</span><span>WEB EXPERIENCE</span></div>
-            <div className="hero-visual-title"><span>Spaces that</span><strong>stay with you.</strong></div>
-            <div className="hero-visual-bottom"><span>Independent thinking. Considered execution.</span><span>↗</span></div>
+        <Reveal delay={0.1} className="hero-visual-wrap">
+          <div className="hero-board">
+            <div className="hero-board-sheet">
+              <div className="hero-board-top">
+                <span>ONKEMETSE KHAVARA</span>
+                <span>PERSONAL WORK · 2026</span>
+              </div>
+              <div className="hero-board-main">
+                <span className="hero-board-label">INDEPENDENT DEVELOPER</span>
+                <div className="hero-monogram" aria-hidden="true">OK</div>
+                <p>Websites. Software.<br /><em>Ideas in progress.</em></p>
+              </div>
+              <div className="hero-board-bottom">
+                <span>BOTSWANA</span>
+                <span>BUILDING, LEARNING, REPEATING</span>
+              </div>
+            </div>
           </div>
-          <div className="floating-note"><span className="floating-note-mark">✳</span><span>Curious by nature.<br /><b>Developer by choice.</b></span></div>
         </Reveal>
-        <a href="#about" className="scroll-cue" aria-label="Scroll to About section"><span />SCROLL TO EXPLORE</a>
       </section>
 
       <section className="about-section page-section" id="about">
         <div className="section-heading">
-          <Reveal><p className="eyebrow">01 / A LITTLE ABOUT ME</p><h2>Curiosity was<br /><em>the starting point.</em></h2></Reveal>
+          <Reveal><p className="eyebrow">A LITTLE ABOUT ME</p><h2>Curiosity was<br /><em>the starting point.</em></h2></Reveal>
           <Reveal delay={0.1}><p className="section-intro">I&apos;ve been programming since my early teens. What started as an attempt to build a personal AI assistant grew into a long-running interest in software, systems and the things we can make with them.</p></Reveal>
         </div>
         <div className="about-grid">
@@ -347,7 +347,7 @@ export default function Portfolio() {
 
       <section className="work-section page-section" id="work">
         <div className="section-heading work-heading">
-          <Reveal><p className="eyebrow">02 / SELECTED WORK</p><h2>A mix of things.<br /><em>One curious mind.</em></h2></Reveal>
+          <Reveal><p className="eyebrow">SELECTED WORK</p><h2>A few things I&apos;ve built.<br /><em>And ideas I&apos;m exploring.</em></h2></Reveal>
           <Reveal delay={0.1}><p className="section-intro">A selection of projects and original website concepts across different industries. Concept demonstrations are clearly labelled and are not presented as commissioned client work.</p></Reveal>
         </div>
         <div className="project-toolbar">
@@ -366,18 +366,18 @@ export default function Portfolio() {
         <Reveal className="project-note"><span>MORE IN THE WORKS</span><p>The demonstration library will keep growing. Each concept is being designed as its own distinct website, not a recoloured template.</p></Reveal>
 
         <Reveal className="pricing-section">
-          <div className="pricing-title-row"><div><p className="eyebrow">03 / WORKING TOGETHER</p><h2>Good work.<br /><em>Clear expectations.</em></h2></div><p>Starting prices for small and growing businesses. Tell me what you&apos;re trying to build and I&apos;ll help shape the right scope.</p></div>
+          <div className="pricing-title-row"><div><p className="eyebrow">WORKING TOGETHER</p><h2>Good work.<br /><em>Clear expectations.</em></h2></div><p>Starting prices for small and growing businesses. Tell me what you&apos;re trying to build and I&apos;ll help shape the right scope.</p></div>
           <CurrencyPricing />
         </Reveal>
       </section>
 
       <section className="skills-section page-section" id="skills">
         <div className="section-heading">
-          <Reveal><p className="eyebrow">04 / SKILLS & EXPERIENCE</p><h2>Tools are useful.<br /><em>Understanding matters.</em></h2></Reveal>
+          <Reveal><p className="eyebrow">SKILLS & EXPERIENCE</p><h2>A practical toolkit.<br /><em>Always room to learn.</em></h2></Reveal>
           <Reveal delay={0.1}><p className="section-intro">I enjoy working across the stack, from the details of an interface to the logic that makes an application useful. This is the toolkit I currently work with and continue to develop.</p></Reveal>
         </div>
         <div className="skills-layout">
-          <Reveal className="skills-statement"><span className="skills-number">01</span><h3>From first sketch<br />to working software.</h3><p>I care about clarity, maintainability and the small decisions that make a product feel coherent.</p><div className="skills-orbit"><span>PY</span><span>JS</span><span>TS</span><span>R</span><i /></div></Reveal>
+          <Reveal className="skills-statement"><p className="eyebrow">HOW I LIKE TO WORK</p><h3>Understand the problem. Make the thing. Improve it.</h3><p>I care about clear interfaces, sound foundations and software that makes sense after the first launch.</p><span className="skills-statement-foot">DESIGN · ENGINEERING · CURIOSITY</span></Reveal>
           <div className="skill-list">
             {skills.map((skill, index) => (
               <Reveal key={skill.name} delay={index * 0.025} className="skill-row">
@@ -394,7 +394,7 @@ export default function Portfolio() {
 
       <section className="contact-section page-section" id="contact">
         <Reveal className="contact-copy">
-          <p className="eyebrow">05 / HAVE SOMETHING IN MIND?</p>
+          <p className="eyebrow">HAVE SOMETHING IN MIND?</p>
           <h2>Let&apos;s make<br /><em>something useful.</em></h2>
           <p>Have a business that needs a website? An idea for an application? Tell me a little about it. We can work out the next step together.</p>
           <div className="contact-bottom"><a href="https://github.com/Yasuke1711" target="_blank" rel="noreferrer" className="social-link"><GithubMark /> GitHub <ArrowUpRight size={14} /></a><span>Francistown, Botswana · Available worldwide</span></div>
