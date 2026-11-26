@@ -1,4 +1,4 @@
-name: Unpack the portfolio starter
+name: Unpack the portfolio starter (and politely remove the luggage)
 
 on:
   push:
