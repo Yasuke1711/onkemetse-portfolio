@@ -34,6 +34,8 @@ const languages = [
   { name: "Java", detail: "Object-oriented programming", logo: "https://cdn.simpleicons.org/java/ED8B00" },
   { name: "JavaScript", detail: "Web interfaces and application logic", logo: "https://cdn.simpleicons.org/javascript/F7DF1E" },
   { name: "TypeScript", detail: "Typed JavaScript development", logo: "https://cdn.simpleicons.org/typescript/3178C6" },
+  { name: "C#", detail: "Unity and game scripting", logo: "https://cdn.simpleicons.org/csharp/512BD4" },
+  { name: "C++", detail: "Game and systems programming", logo: "https://cdn.simpleicons.org/cplusplus/00599C" },
   { name: "Assembly", detail: "Basic familiarity", logo: "/icons/assembly.svg" },
 ];
 
