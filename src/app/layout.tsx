@@ -3,17 +3,18 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Onkemetse Khavara · Independent Developer",
-  description: "Websites, applications and thoughtful digital experiences by Onkemetse Khavara, independent developer based in Botswana and working worldwide.",
+  title: "Onkemetse Khavara | Independent Developer",
+  description: "The personal portfolio of Onkemetse Khavara, an independent developer in Botswana working across websites, applications and software.",
+  applicationName: "Onkemetse Khavara",
   openGraph: {
-    title: "Onkemetse Khavara · Independent Developer",
-    description: "Design, development and software. Building useful digital experiences for businesses around the world.",
+    title: "Onkemetse Khavara | Independent Developer",
+    description: "Websites, applications and software by Onkemetse Khavara.",
     type: "website",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f4f3ef",
+  themeColor: "#f3f5fa",
   width: "device-width",
   initialScale: 1,
 };
