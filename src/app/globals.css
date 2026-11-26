@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -13,6 +13,7 @@
   --accent-dark: #35417f;
   --accent-soft: #e6eaf7;
   --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --display: "Syne", "DM Sans", sans-serif;
   --sans: "DM Sans", "Segoe UI", Helvetica, sans-serif;
 }
 
@@ -931,4 +932,98 @@ img { display: block; }
 @media (max-width: 430px) {
   .language-grid { grid-template-columns: 1fr; }
   .language-card { min-height: 66px; }
+}
+
+
+/* A more characterful display face gives the first line its own voice. */
+.hero-section h1 {
+  font-family: var(--display);
+  font-size: clamp(58px, 6.4vw, 91px);
+  font-weight: 600;
+  letter-spacing: -.075em;
+  line-height: .99;
+}
+.hero-section h1 em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.05em;
+}
+@media (max-width: 760px) {
+  .hero-section h1 {
+    font-size: clamp(49px, 11.7vw, 74px);
+    letter-spacing: -.07em;
+    line-height: 1.02;
+  }
+}
+
+/* Contact links are actual destinations, not decorative social badges. */
+.contact-connect {
+  margin-top: 42px;
+}
+.connect-label {
+  margin: 0 0 13px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .09em;
+}
+.connect-email-label { margin-top: 25px; }
+.social-links,
+.contact-emails {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+}
+.social-link,
+.email-link {
+  display: inline-flex;
+  min-height: 43px;
+  max-width: 100%;
+  align-items: center;
+  gap: 9px;
+  padding: 0 15px;
+  border: 1px solid #d5dbea;
+  border-radius: 999px;
+  background: rgba(255,255,255,.82);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
+}
+.social-link:hover,
+.email-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+.social-link svg,
+.email-link svg {
+  flex: 0 0 auto;
+}
+.email-link {
+  min-height: 42px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.contact-location {
+  margin: 23px 0 0;
+  color: var(--muted-light);
+  font-size: 13px;
+  line-height: 1.6;
+}
+@media (max-width: 760px) {
+  .contact-connect { margin-top: 34px; }
+  .social-links,
+  .contact-emails { gap: 8px; }
+  .social-link,
+  .email-link {
+    min-height: 41px;
+    padding: 0 13px;
+    font-size: 12px;
+  }
+  .email-link { word-break: break-word; }
 }
