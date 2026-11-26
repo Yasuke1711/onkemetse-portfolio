@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { type FormEvent, type ReactNode, useEffect, useMemo, useState } from "react";
 import { Project, projectFilters, projects } from "@/data/projects";
@@ -104,11 +105,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
         <span className="project-image-mark" style={{ backgroundColor: project.accent }} />
         {!imageFailed && (
-          <img
+          <Image
             src={project.image}
             alt=""
+            width={1}
+            height={1}
+            unoptimized
             className="image-load-check"
-            loading="lazy"
             onError={() => setImageFailed(true)}
           />
         )}
@@ -229,7 +232,6 @@ export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [formStatus, setFormStatus] = useState("");
-  const reduceMotion = useReducedMotion();
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim();
 
   const filteredProjects = useMemo(() => {
@@ -285,7 +287,7 @@ export default function Portfolio() {
             >{item.label}</a>
           ))}
         </nav>
-        <a className="header-cta" href="#contact">Let's talk <ArrowUpRight size={15} /></a>
+        <a className="header-cta" href="#contact">Let&apos;s talk <ArrowUpRight size={15} /></a>
         <button className="mobile-menu-button" type="button" aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen((open) => !open)}>
           <span /><span />
         </button>
@@ -297,7 +299,7 @@ export default function Portfolio() {
             <div className="availability"><span className="availability-dot" /> Independent developer · Botswana · Open to projects worldwide</div>
             <p className="hero-kicker">DESIGN · DEVELOPMENT · SOFTWARE</p>
             <h1>I build digital things <em>that feel right.</em></h1>
-            <p className="hero-copy">I'm Onkemetse Khavara, a developer interested in the space where thoughtful design meets useful technology. I build websites, applications and software experiences for people with something worth putting online.</p>
+            <p className="hero-copy">I&apos;m Onkemetse Khavara, a developer interested in the space where thoughtful design meets useful technology. I build websites, applications and software experiences for people with something worth putting online.</p>
             <div className="hero-actions">
               <a className="button button-dark" href="#work">Explore my work <ArrowUpRight /></a>
               <a className="text-link" href="#about">A little about me <ArrowRight /></a>
@@ -324,13 +326,13 @@ export default function Portfolio() {
       <section className="about-section page-section" id="about">
         <div className="section-heading">
           <Reveal><p className="eyebrow">01 / A LITTLE ABOUT ME</p><h2>Curiosity was<br /><em>the starting point.</em></h2></Reveal>
-          <Reveal delay={0.1}><p className="section-intro">I've been programming since my early teens. What started as an attempt to build a personal AI assistant grew into a long-running interest in software, systems and the things we can make with them.</p></Reveal>
+          <Reveal delay={0.1}><p className="section-intro">I&apos;ve been programming since my early teens. What started as an attempt to build a personal AI assistant grew into a long-running interest in software, systems and the things we can make with them.</p></Reveal>
         </div>
         <div className="about-grid">
           <Reveal className="about-story">
             <p>Python was my first language. At around 13, I wanted to build my own version of Jarvis. The first attempt was a small chatbot, not quite the assistant I had imagined, but it gave me a reason to keep learning.</p>
-            <p>Since then, I've worked on independent projects, taken on smaller development work and completed a Bachelor of Science in Computer Science through University of the People.</p>
-            <p>These days, I'm interested in building useful digital products, exploring new technologies and solving problems that sit somewhere between software and the real world.</p>
+            <p>Since then, I&apos;ve worked on independent projects, taken on smaller development work and completed a Bachelor of Science in Computer Science through University of the People.</p>
+            <p>These days, I&apos;m interested in building useful digital products, exploring new technologies and solving problems that sit somewhere between software and the real world.</p>
             <a className="text-link text-link-blue" href="#skills">Explore my toolkit <ArrowRight /></a>
           </Reveal>
           <Reveal delay={0.12} className="timeline-card">
@@ -364,7 +366,7 @@ export default function Portfolio() {
         <Reveal className="project-note"><span>MORE IN THE WORKS</span><p>The demonstration library will keep growing. Each concept is being designed as its own distinct website, not a recoloured template.</p></Reveal>
 
         <Reveal className="pricing-section">
-          <div className="pricing-title-row"><div><p className="eyebrow">03 / WORKING TOGETHER</p><h2>Good work.<br /><em>Clear expectations.</em></h2></div><p>Starting prices for small and growing businesses. Tell me what you're trying to build and I'll help shape the right scope.</p></div>
+          <div className="pricing-title-row"><div><p className="eyebrow">03 / WORKING TOGETHER</p><h2>Good work.<br /><em>Clear expectations.</em></h2></div><p>Starting prices for small and growing businesses. Tell me what you&apos;re trying to build and I&apos;ll help shape the right scope.</p></div>
           <CurrencyPricing />
         </Reveal>
       </section>
@@ -393,7 +395,7 @@ export default function Portfolio() {
       <section className="contact-section page-section" id="contact">
         <Reveal className="contact-copy">
           <p className="eyebrow">05 / HAVE SOMETHING IN MIND?</p>
-          <h2>Let's make<br /><em>something useful.</em></h2>
+          <h2>Let&apos;s make<br /><em>something useful.</em></h2>
           <p>Have a business that needs a website? An idea for an application? Tell me a little about it. We can work out the next step together.</p>
           <div className="contact-bottom"><a href="https://github.com/Yasuke1711" target="_blank" rel="noreferrer" className="social-link"><GithubMark /> GitHub <ArrowUpRight size={14} /></a><span>Francistown, Botswana · Available worldwide</span></div>
         </Reveal>
