@@ -417,7 +417,7 @@ export default function Portfolio() {
       </section>
 
       <footer className="site-footer">
-        <a className="wordmark" href="#home">onkemetse<span>.</span></a>
+        <a className="wordmark" href="#home">Onkemetse <span>Khavara</span></a>
         <p>Independent developer · Design, development and software.</p>
         <a href="#home" className="back-to-top">BACK TO TOP ↑</a>
         <span className="footer-year">© {new Date().getFullYear()} Onkemetse Khavara</span>
