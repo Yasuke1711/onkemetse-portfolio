@@ -29,32 +29,21 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-const skills = [
-  { name: "Python", detail: "First language · automation · application logic" },
-  { name: "JavaScript", detail: "Interactive interfaces and web applications" },
-  { name: "TypeScript", detail: "Typed application development" },
-  { name: "React & Next.js", detail: "Component-driven websites and applications" },
-  { name: "HTML & CSS", detail: "Responsive layouts and visual systems" },
-  { name: "Tailwind CSS", detail: "Utility-first interface styling" },
-  { name: "APIs & integrations", detail: "Connecting services and application data" },
-  { name: "Rust", detail: "Currently exploring systems programming" },
+const languages = [
+  { name: "Python", detail: "My first language", logo: "https://cdn.simpleicons.org/python/3776AB" },
+  { name: "Java", detail: "Object-oriented programming", logo: "https://cdn.simpleicons.org/java/ED8B00" },
+  { name: "JavaScript", detail: "Web interfaces and application logic", logo: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+  { name: "TypeScript", detail: "Typed JavaScript development", logo: "https://cdn.simpleicons.org/typescript/3178C6" },
+  { name: "Assembly", detail: "Basic familiarity", logo: "/icons/assembly.svg" },
 ];
 
-function ArrowUpRight({ size = 17 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M7 17 17 7M7 7h10v10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function ArrowRight({ size = 17 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
+const technologies = [
+  "React",
+  "Next.js",
+  "HTML & CSS",
+  "Tailwind CSS",
+  "APIs & integrations",
+];
 
 function GithubMark() {
   return (
@@ -280,7 +269,7 @@ export default function Portfolio() {
             >{item.label}</a>
           ))}
         </nav>
-        <a className="header-cta" href="#contact">Let&apos;s talk <ArrowUpRight size={15} /></a>
+        <a className="header-cta" href="#contact">Let&apos;s talk</a>
         <button className="mobile-menu-button" type="button" aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen((open) => !open)}>
           <span /><span />
         </button>
@@ -293,8 +282,8 @@ export default function Portfolio() {
             <h1>I start with a question. <em>Then I build.</em></h1>
             <p className="hero-copy">I&apos;m Onkemetse, a developer based in Botswana. I work on websites, applications and software, with a particular interest in how things work beneath the surface.</p>
             <div className="hero-actions">
-              <a className="button button-dark" href="#work">See what I&apos;ve built <ArrowUpRight /></a>
-              <a className="text-link" href="#about">Get to know me <ArrowRight /></a>
+              <a className="button button-dark" href="#work">See what I&apos;ve built</a>
+              <a className="text-link" href="#about">Get to know me</a>
             </div>
             <div className="hero-meta">
               <span>Francistown, Botswana</span>
@@ -333,7 +322,7 @@ export default function Portfolio() {
             <p>Python was my first language. At around 13, I wanted to build my own version of Jarvis. The first attempt was a small chatbot, not quite the assistant I had imagined, but it gave me a reason to keep learning.</p>
             <p>Since then, I&apos;ve worked on independent projects, taken on smaller development work and completed a Bachelor of Science in Computer Science through University of the People.</p>
             <p>These days, I&apos;m interested in building useful digital products, exploring new technologies and solving problems that sit somewhere between software and the real world.</p>
-            <a className="text-link text-link-blue" href="#skills">Explore my toolkit <ArrowRight /></a>
+            <a className="text-link text-link-blue" href="#skills">Explore my toolkit</a>
           </Reveal>
           <Reveal delay={0.12} className="timeline-card">
             <p className="eyebrow">A FEW MILESTONES</p>
@@ -377,17 +366,34 @@ export default function Portfolio() {
           <Reveal delay={0.1}><p className="section-intro">I enjoy working across the stack, from the details of an interface to the logic that makes an application useful. This is the toolkit I currently work with and continue to develop.</p></Reveal>
         </div>
         <div className="skills-layout">
-          <Reveal className="skills-statement"><p className="eyebrow">HOW I LIKE TO WORK</p><h3>Understand the problem. Make the thing. Improve it.</h3><p>I care about clear interfaces, sound foundations and software that makes sense after the first launch.</p><span className="skills-statement-foot">DESIGN · ENGINEERING · CURIOSITY</span></Reveal>
-          <div className="skill-list">
-            {skills.map((skill, index) => (
-              <Reveal key={skill.name} delay={index * 0.025} className="skill-row">
-                <span className="skill-index">{String(index + 1).padStart(2, "0")}</span>
-                <b>{skill.name}</b>
-                <span>{skill.detail}</span>
-                <ArrowUpRight size={15} />
-              </Reveal>
-            ))}
-          </div>
+          <Reveal className="language-panel">
+            <div className="language-panel-heading">
+              <p className="eyebrow">PROGRAMMING LANGUAGES</p>
+              <span>WHAT I WORK WITH</span>
+            </div>
+            <div className="language-grid">
+              {languages.map((language) => (
+                <article className="language-card" key={language.name}>
+                  <span className="language-logo-wrap">
+                    <Image src={language.logo} alt="" width={38} height={38} unoptimized className={`language-logo language-logo-${language.name.toLowerCase()}`} />
+                  </span>
+                  <span className="language-copy">
+                    <b>{language.name}</b>
+                    <span>{language.detail}</span>
+                  </span>
+                </article>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal className="skills-statement">
+            <p className="eyebrow">TOOLS & TECHNOLOGIES</p>
+            <h3>Different tools for different problems.</h3>
+            <p>Most projects involve more than a language. These are some of the frameworks and technologies I use alongside them.</p>
+            <div className="technology-list">
+              {technologies.map((technology) => <span key={technology}>{technology}</span>)}
+            </div>
+            <div className="learning-note"><span>Currently exploring</span><b>Rust</b><small>Systems programming</small></div>
+          </Reveal>
         </div>
         <div className="skills-footnote"><span>ALWAYS LEARNING</span><p>Currently exploring systems programming with Rust, alongside interests in AI, intelligent tools and computational research.</p></div>
       </section>
@@ -397,7 +403,7 @@ export default function Portfolio() {
           <p className="eyebrow">HAVE SOMETHING IN MIND?</p>
           <h2>Let&apos;s make<br /><em>something useful.</em></h2>
           <p>Have a business that needs a website? An idea for an application? Tell me a little about it. We can work out the next step together.</p>
-          <div className="contact-bottom"><a href="https://github.com/Yasuke1711" target="_blank" rel="noreferrer" className="social-link"><GithubMark /> GitHub <ArrowUpRight size={14} /></a><span>Francistown, Botswana · Available worldwide</span></div>
+          <div className="contact-bottom"><a href="https://github.com/Yasuke1711" target="_blank" rel="noreferrer" className="social-link"><GithubMark /> GitHub</a><span>Francistown, Botswana · Available worldwide</span></div>
         </Reveal>
         <Reveal delay={0.12} className="contact-form-wrap">
           <form className="contact-form" onSubmit={handleContactSubmit}>
@@ -409,7 +415,7 @@ export default function Portfolio() {
               </select>
             </label>
             <label>Tell me a little about it<textarea name="message" rows={4} placeholder="A few details about your project…" required /></label>
-            <button className="button button-dark form-submit" type="submit">Send an enquiry <ArrowUpRight /></button>
+            <button className="button button-dark form-submit" type="submit">Send an enquiry</button>
             {formStatus && <p className="form-status" role="status">{formStatus}</p>}
             {!contactEmail && <p className="form-hint">Contact email will be connected before launch.</p>}
           </form>
