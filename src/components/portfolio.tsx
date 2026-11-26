@@ -31,10 +31,10 @@ const navItems = [
 
 const languages = [
   { name: "Python", detail: "My first language", logo: "https://cdn.simpleicons.org/python/3776AB" },
-  { name: "Java", detail: "Object-oriented programming", logo: "https://cdn.simpleicons.org/java/ED8B00" },
+  { name: "Java", detail: "Object-oriented programming", logo: "/icons/java.svg" },
   { name: "JavaScript", detail: "Web interfaces and application logic", logo: "https://cdn.simpleicons.org/javascript/F7DF1E" },
   { name: "TypeScript", detail: "Typed JavaScript development", logo: "https://cdn.simpleicons.org/typescript/3178C6" },
-  { name: "C#", detail: "Unity and game scripting", logo: "https://cdn.simpleicons.org/csharp/512BD4" },
+  { name: "C#", detail: "Unity and game scripting", logo: "/icons/csharp.svg" },
   { name: "C++", detail: "Game and systems programming", logo: "https://cdn.simpleicons.org/cplusplus/00599C" },
   { name: "Assembly", detail: "Basic familiarity", logo: "/icons/assembly.svg" },
 ];
@@ -376,9 +376,7 @@ export default function Portfolio() {
             <div className="language-grid">
               {languages.map((language) => (
                 <article className="language-card" key={language.name}>
-                  <span className="language-logo-wrap">
-                    <Image src={language.logo} alt="" width={38} height={38} unoptimized className={`language-logo language-logo-${language.name.toLowerCase()}`} />
-                  </span>
+                  <Image src={language.logo} alt="" width={40} height={40} unoptimized className="language-logo" />
                   <span className="language-copy">
                     <b>{language.name}</b>
                     <span>{language.detail}</span>
