@@ -55,6 +55,22 @@ function GithubMark() {
   );
 }
 
+function LinkedInMark() {
+  return <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>;
+}
+
+function InstagramMark() {
+  return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/><circle cx="17.6" cy="6.7" r="1.2" fill="currentColor"/></svg>;
+}
+
+function FacebookMark() {
+  return <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.6 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.7V13h2.7v8h3.2Z"/></svg>;
+}
+
+function MailMark() {
+  return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5" stroke="currentColor" strokeWidth="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+}
+
 function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   const reduceMotion = useReducedMotion();
   return (
@@ -216,7 +232,7 @@ export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [formStatus, setFormStatus] = useState("");
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim();
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "dragnelkhavara@gmail.com";
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "All") return projects;
@@ -280,9 +296,9 @@ export default function Portfolio() {
       <section className="hero-section page-section" id="home">
         <div className="hero-content">
           <Reveal>
-            <p className="hero-kicker">ONKEMETSE KHAVARA · INDEPENDENT DEVELOPER</p>
+            <p className="hero-kicker">INDEPENDENT DEVELOPER · BOTSWANA</p>
             <h1>I start with a question. <em>Then I build.</em></h1>
-            <p className="hero-copy">I&apos;m Onkemetse, a developer based in Botswana. I work on websites, applications and software, with a particular interest in how things work beneath the surface.</p>
+            <p className="hero-copy">I work on websites, applications and software, with a particular interest in how things work beneath the surface and how they can be made better.</p>
             <div className="hero-actions">
               <a className="button button-dark" href="#work">See what I&apos;ve built</a>
               <a className="text-link" href="#about">Get to know me</a>
@@ -297,17 +313,17 @@ export default function Portfolio() {
           <div className="hero-board">
             <div className="hero-board-sheet">
               <div className="hero-board-top">
-                <span>ONKEMETSE KHAVARA</span>
-                <span>PERSONAL WORK · 2026</span>
+                <span>FIELD NOTES</span>
+                <span>NO. 01 / 2026</span>
               </div>
               <div className="hero-board-main">
-                <span className="hero-board-label">INDEPENDENT DEVELOPER</span>
+                <span className="hero-board-label">A CURIOSITY FOR HOW THINGS WORK</span>
                 <div className="hero-monogram" aria-hidden="true">OK</div>
                 <p>Websites. Software.<br /><em>Ideas in progress.</em></p>
               </div>
               <div className="hero-board-bottom">
-                <span>BOTSWANA</span>
-                <span>BUILDING, LEARNING, REPEATING</span>
+                <span>DESIGN & ENGINEERING</span>
+                <span>ALWAYS BUILDING</span>
               </div>
             </div>
           </div>
@@ -403,7 +419,21 @@ export default function Portfolio() {
           <p className="eyebrow">HAVE SOMETHING IN MIND?</p>
           <h2>Let&apos;s make<br /><em>something useful.</em></h2>
           <p>Have a business that needs a website? An idea for an application? Tell me a little about it. We can work out the next step together.</p>
-          <div className="contact-bottom"><a href="https://github.com/Yasuke1711" target="_blank" rel="noreferrer" className="social-link"><GithubMark /> GitHub</a><span>Francistown, Botswana · Available worldwide</span></div>
+          <div className="contact-connect">
+            <p className="connect-label">FIND ME ELSEWHERE</p>
+            <div className="social-links">
+              <a href="https://www.linkedin.com/in/onkemetse-khavara-8ba673205" target="_blank" rel="noreferrer" className="social-link"><LinkedInMark /> LinkedIn</a>
+              <a href="https://www.instagram.com/kevinkhavara10/" target="_blank" rel="noreferrer" className="social-link"><InstagramMark /> Instagram</a>
+              <a href="https://www.facebook.com/kevin.khavara" target="_blank" rel="noreferrer" className="social-link"><FacebookMark /> Facebook</a>
+              <a href="https://github.com/Yasuke1711" target="_blank" rel="noreferrer" className="social-link"><GithubMark /> GitHub</a>
+            </div>
+            <p className="connect-label connect-email-label">EMAIL</p>
+            <div className="contact-emails">
+              <a className="email-link" href="mailto:dragnelkhavara@gmail.com"><MailMark /> dragnelkhavara@gmail.com</a>
+              <a className="email-link" href="mailto:darynnparker@gmail.com"><MailMark /> darynnparker@gmail.com</a>
+            </div>
+            <p className="contact-location">Francistown, Botswana · Available worldwide</p>
+          </div>
         </Reveal>
         <Reveal delay={0.12} className="contact-form-wrap">
           <form className="contact-form" onSubmit={handleContactSubmit}>
@@ -417,7 +447,7 @@ export default function Portfolio() {
             <label>Tell me a little about it<textarea name="message" rows={4} placeholder="A few details about your project…" required /></label>
             <button className="button button-dark form-submit" type="submit">Send an enquiry</button>
             {formStatus && <p className="form-status" role="status">{formStatus}</p>}
-            {!contactEmail && <p className="form-hint">Contact email will be connected before launch.</p>}
+            
           </form>
         </Reveal>
       </section>
