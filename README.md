@@ -1,15 +1,13 @@
 # Onkemetse Khavara · Portfolio
 
-A personal portfolio and web-development showcase for Onkemetse Khavara.
-
-This project takes structural inspiration from Adrian Hajdin's clean, section-led portfolio tutorial, then implements an original experience for Onkemetse: Home, About, Work, Skills and Contact, with an industry-filtered project catalogue, concept demonstrations, transparent pricing and international currency display.
+A personal developer portfolio and web-development showcase for Onkemetse Khavara. The project uses the clean section-led structure of the JavaScript Mastery portfolio tutorial as a reference, with an independently implemented Next.js application.
 
 ## Stack
 
-- Next.js App Router
-- React
+- Next.js 16.4.6 (App Router)
+- React 19.3.1
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS 4.3.5 (PostCSS integration)
 - Motion for React
 
 ## Getting started
@@ -25,27 +23,41 @@ npm run dev
 
 Open http://localhost:3000.
 
-## Scripts
+## Available scripts
 
 ```bash
-npm run dev
-npm run build
-npm run start
-npm run lint
-npm run typecheck
+npm run dev       # local development
+npm run build     # production build
+npm run start     # run production build
+npm run lint      # ESLint
+npm run typecheck # TypeScript check
 ```
 
-## Project principles
+## Project structure
 
-- **Selected work** and **concept demonstrations** are clearly labelled separately.
-- Concept businesses are fictional design studies, not commissioned clients.
-- No fabricated testimonials, inflated experience claims or invented credentials.
-- Prices are indicative starting points in BWP. Currency conversions are estimates, not contract quotations.
-- Payment terms: 50% deposit to begin; the remaining 50% after the agreed work is complete and approved, before final handover.
-- Client domains should be registered in the client's name.
-- The original tutorial author's Sanity project ID, dataset and credentials must never be reused.
+```text
+src/
+  app/
+    globals.css
+    layout.tsx
+    page.tsx
+  components/
+    portfolio.tsx
+  data/
+    projects.ts
+```
 
-## Current status
+## Notes before publishing
 
-The first implementation establishes the main page architecture, scroll reveals, project filters, pricing and currency selector. Individual live demo routes, approved project screenshots, contact delivery and production deployment are follow-up work.
+- The project and demo catalogue deliberately distinguishes **Selected work** from **Concept demos**. Do not present concept websites as commissioned client work.
+- Some portfolio entries are initial records and need approved screenshots, precise project descriptions and live URLs before launch.
+- Replace or curate the remote Unsplash photographs with properly licensed assets for the final demos. The current images are visual placeholders.
+- The currency selector requests indicative exchange rates through `/api/rates`, backed by ExchangeRate-API Open Access (`open.er-api.com`). The server caches the source response for 24 hours. Provider attribution is linked in the pricing section. If the service is unavailable or does not provide a rate for a currency, the UI falls back to an unavailable/quote-on-request state. The provider permits commercial conversion but prohibits redistribution of raw rate data. Agree the actual quotation currency with each client; displayed conversions are not contract prices.
+- Zimbabwe Gold (ZiG / ZWG) may not be available from the exchange-rate provider. USD remains available as an alternative display currency.
+- Set `NEXT_PUBLIC_CONTACT_EMAIL` in `.env.local` before launch. The contact form creates a pre-filled email; it does not send messages to a server.
+- Update the Open Graph metadata and add the confirmed production domain once one has been selected.
+- Do not reuse the original tutorial author's Sanity project ID, dataset or credentials. A separate Sanity project can be configured later if a CMS becomes useful.
 
+## Design direction
+
+The first pass establishes the page architecture and visual language: Home, About, Work, Skills and Contact. It includes scroll reveals, an active section indicator, animated project filtering, indicative pricing and 50/50 payment terms. The concept website demos will be implemented as their own routes in a later phase.
