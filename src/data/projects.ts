@@ -92,7 +92,7 @@ export const projects: Project[] = [
     accent: "#8b6659",
     tags: ["Boutique hotel", "Booking journey", "P6,000 package"],
     featured: true,
-    url: "https://onkemetse-portfolio.vercel.app/the-grand-house/",
+    url: "https://the-grand-house.vercel.app/",
   },
   {
     slug: "little-acacia",
