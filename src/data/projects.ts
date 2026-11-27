@@ -52,7 +52,7 @@ export const projects: Project[] = [
     imageAlt: "Construction site and building work featured in the Grem Constructions website preview",
     accent: "#9b8052",
     tags: ["Construction", "Project gallery", "Enquiry builder"],
-    url: "https://kagoconstructions.netlify.app/",
+    url: "https://gremconstructions.netlify.app/",
   },
   {
     slug: "bella-lumiere",
