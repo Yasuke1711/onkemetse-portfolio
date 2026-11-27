@@ -78,7 +78,7 @@ export const projects: Project[] = [
     imageAlt: "A herd of elephants walking beside a river in Botswana",
     accent: "#6f806d",
     tags: ["Safari lodge", "Okavango Delta", "Stay planner"],
-    url: "https://onkemetse-portfolio.vercel.app/mokoro-house/",
+    url: "https://yasuke1711.github.io/mokoro-house/",
   },
   {
     slug: "the-grand-house",
