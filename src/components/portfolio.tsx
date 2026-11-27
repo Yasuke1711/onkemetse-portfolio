@@ -303,39 +303,21 @@ export default function Portfolio() {
           </Reveal>
         </div>
         <Reveal delay={0.1} className="hero-visual-wrap">
-          <div className="hero-workbench">
-            <div className="workbench-topline">
-              <span>THINGS THAT KEEP ME CURIOUS</span>
-              <span>01 — 03</span>
-            </div>
-            <div className="workbench-heading">
-              <p>From the interface</p>
-              <p><em>to the instruction set.</em></p>
-            </div>
-            <div className="workbench-track" aria-hidden="true">
-              <span /><span /><span />
-            </div>
-            <div className="workbench-areas">
-              <div className="workbench-area">
-                <span>01</span>
-                <b>Interface</b>
-                <p>Websites and digital products</p>
+          <div className="hero-board">
+            <div className="hero-board-sheet">
+              <div className="hero-board-top">
+                <span>ONKEMETSE KHAVARA</span>
+                <span>PERSONAL WORK · 2026</span>
               </div>
-              <div className="workbench-area">
-                <span>02</span>
-                <b>Logic</b>
-                <p>Applications, tools and behaviour</p>
+              <div className="hero-board-main">
+                <span className="hero-board-label">A FEW THINGS I&apos;M WORKING ON</span>
+                <div className="hero-monogram" aria-hidden="true">OK</div>
+                <p>Websites. Software.<br /><em>Ideas in progress.</em></p>
               </div>
-              <div className="workbench-area">
-                <span>03</span>
-                <b>Computation</b>
-                <p>Systems, low-level code and quantum ideas</p>
+              <div className="hero-board-bottom">
+                <span>BOTSWANA</span>
+                <span>BUILDING, LEARNING, REPEATING</span>
               </div>
-            </div>
-            <div className="workbench-footer">
-              <span>WEB</span>
-              <span>SOFTWARE</span>
-              <span>COMPUTING</span>
             </div>
           </div>
         </Reveal>
