@@ -47,6 +47,7 @@
     const departure = $('[data-date-role="departure"]', form);
     const adults = $('select[name="adults"]', form);
     const rooms = $('select[name="rooms"]', form);
+    const children = $('select[name="children"]', form);
     const today = new Date();
     const todayString = today.getFullYear() + "-" + String(today.getMonth() + 1).padStart(2, "0") + "-" + String(today.getDate()).padStart(2, "0");
     if (arrival) arrival.min = todayString;
@@ -55,6 +56,7 @@
     if (departure && !departure.value) departure.value = params.get("departure") || defaultDeparture;
     if (adults && params.has("adults")) adults.value = params.get("adults");
     if (rooms && params.has("rooms")) rooms.value = params.get("rooms");
+    if (children && params.has("children")) children.value = params.get("children");
     form.addEventListener("submit", event => {
       event.preventDefault();
       const start = arrival ? arrival.value : "";
@@ -69,7 +71,8 @@
         arrival: start,
         departure: end,
         adults: adults ? adults.value : "2",
-        rooms: rooms ? rooms.value : "1"
+        rooms: rooms ? rooms.value : "1",
+        children: children ? children.value : "0"
       });
       window.location.href = "availability.html?" + query.toString();
     });
@@ -113,7 +116,7 @@
           rateCard.innerHTML = '<h4>' + rate.name + '</h4><p>' + rate.note + '</p><strong class="rate-price">' + money(nightly) + '</strong><span class="rate-sub">per room / night · estimated total ' + money(total) + '</span><button class="button button-dark" type="button" data-choose-rate>Choose rate</button>';
           const choose = $("[data-choose-rate]", rateCard);
           choose.addEventListener("click", () => {
-            if (adults > capacity * rooms) {
+            if (adults + children > capacity * rooms) {
               window.alert("This room type may not accommodate your full party. Please choose a larger room or adjust the room count.");
               return;
             }
@@ -161,6 +164,11 @@
     const nightly = Math.max(0, Number(params.get("nightly") || 2850));
     const baseTotal = Math.max(0, Number(params.get("total") || nightly * nights * rooms));
     const policy = params.get("policy") || "Sample flexible rate terms.";
+    const selectedRate = params.get("rate") || "flexible";
+    if (selectedRate === "breakfast") {
+      const breakfastOption = $('input[name="extra"][value="breakfast"]');
+      if (breakfastOption) breakfastOption.closest(".extra-option").hidden = true;
+    }
     const setText = (selector, value) => { const node = $(selector); if (node) node.textContent = value; };
     setText("[data-res-room]", roomName);
     setText("[data-res-arrival]", dateText(arrival));
@@ -175,7 +183,7 @@
     const extrasTotal = () => extras.reduce((total, input) => {
       if (!input.checked) return total;
       const unit = Number(input.dataset.price || 0);
-      if (input.value === "breakfast") return total + unit * adults * nights;
+      if (input.value === "breakfast") return total + unit * (adults + children) * nights;
       if (input.value === "parking") return total + unit * rooms * nights;
       return total + unit;
     }, 0);
