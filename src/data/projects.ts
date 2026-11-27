@@ -104,7 +104,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1754662104768-9efcb2f57e7e?auto=format&fit=crop&w=1200&q=85",
     imageAlt: "Acacia tree against a glowing Southern African savannah sunset",
     accent: "#b79a69",
-    tags: ["Flagship hospitality", "Guest experience", "Stay enquiry"],
+    tags: ["Flagship hospitality", "P9,000+ custom", "Stay enquiry"],
     featured: true,
     url: "https://onkemetse-portfolio.vercel.app/little-acacia/",
   },
