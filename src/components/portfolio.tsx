@@ -45,15 +45,8 @@ const technologies = [
   "HTML & CSS",
   "Tailwind CSS",
   "APIs & integrations",
+  "Qiskit",
 ];
-
-function GithubMark() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.31-3.76-1.31-.5-1.29-1.24-1.63-1.24-1.63-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.76 1.94 3.35 1.95.11-.71.43-1.2.74-1.47-2.48-.28-5.09-1.24-5.09-5.54 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.42.11-2.95 0 0 .95-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.1-1.45 3.04-1.15 3.04-1.15.61 1.53.23 2.67.12 2.95.72.78 1.15 1.78 1.15 3 0 4.31-2.61 5.25-5.1 5.53.4.35.76 1.02.76 2.06v3.05c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
-    </svg>
-  );
-}
 
 function LinkedInMark() {
   return <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>;
@@ -310,21 +303,39 @@ export default function Portfolio() {
           </Reveal>
         </div>
         <Reveal delay={0.1} className="hero-visual-wrap">
-          <div className="hero-board">
-            <div className="hero-board-sheet">
-              <div className="hero-board-top">
-                <span>FIELD NOTES</span>
-                <span>NO. 01 / 2026</span>
+          <div className="hero-workbench">
+            <div className="workbench-topline">
+              <span>THINGS THAT KEEP ME CURIOUS</span>
+              <span>01 — 03</span>
+            </div>
+            <div className="workbench-heading">
+              <p>From the interface</p>
+              <p><em>to the instruction set.</em></p>
+            </div>
+            <div className="workbench-track" aria-hidden="true">
+              <span /><span /><span />
+            </div>
+            <div className="workbench-areas">
+              <div className="workbench-area">
+                <span>01</span>
+                <b>Interface</b>
+                <p>Websites and digital products</p>
               </div>
-              <div className="hero-board-main">
-                <span className="hero-board-label">A CURIOSITY FOR HOW THINGS WORK</span>
-                <div className="hero-monogram" aria-hidden="true">OK</div>
-                <p>Websites. Software.<br /><em>Ideas in progress.</em></p>
+              <div className="workbench-area">
+                <span>02</span>
+                <b>Logic</b>
+                <p>Applications, tools and behaviour</p>
               </div>
-              <div className="hero-board-bottom">
-                <span>DESIGN & ENGINEERING</span>
-                <span>ALWAYS BUILDING</span>
+              <div className="workbench-area">
+                <span>03</span>
+                <b>Computation</b>
+                <p>Systems, low-level code and quantum ideas</p>
               </div>
+            </div>
+            <div className="workbench-footer">
+              <span>WEB</span>
+              <span>SOFTWARE</span>
+              <span>COMPUTING</span>
             </div>
           </div>
         </Reveal>
@@ -411,7 +422,7 @@ export default function Portfolio() {
             <div className="learning-note"><span>Currently exploring</span><b>Rust</b><small>Systems programming</small></div>
           </Reveal>
         </div>
-        <div className="skills-footnote"><span>ALWAYS LEARNING</span><p>Currently exploring systems programming with Rust, alongside interests in AI, intelligent tools and computational research.</p></div>
+        <div className="skills-footnote"><span>ALWAYS LEARNING</span><p>Quantum computing coursework introduced me to Qiskit. I&apos;m also exploring systems programming with Rust, alongside wider interests in AI and intelligent tools.</p></div>
       </section>
 
       <section className="contact-section page-section" id="contact">
@@ -425,7 +436,6 @@ export default function Portfolio() {
               <a href="https://www.linkedin.com/in/onkemetse-khavara-8ba673205" target="_blank" rel="noreferrer" className="social-link"><LinkedInMark /> LinkedIn</a>
               <a href="https://www.instagram.com/kevinkhavara10/" target="_blank" rel="noreferrer" className="social-link"><InstagramMark /> Instagram</a>
               <a href="https://www.facebook.com/kevin.khavara" target="_blank" rel="noreferrer" className="social-link"><FacebookMark /> Facebook</a>
-              <a href="https://github.com/Yasuke1711" target="_blank" rel="noreferrer" className="social-link"><GithubMark /> GitHub</a>
             </div>
             <p className="connect-label connect-email-label">EMAIL</p>
             <div className="contact-emails">
