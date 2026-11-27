@@ -65,7 +65,7 @@ export const projects: Project[] = [
     imageAlt: "Colourful handmade crochet bag featured in the Bella Lumière craft website preview",
     accent: "#e65a43",
     tags: ["Craft boutique", "Idea catalogue", "Custom enquiries"],
-    url: "https://belle-lumiere.netlify.app/",
+    url: "https://bella-lumiere.netlify.app/",
   },
   {
     slug: "mokoro-house",
