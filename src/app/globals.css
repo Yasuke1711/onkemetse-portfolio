@@ -1254,3 +1254,76 @@ img { display: block; }
   .hero-site-related-list a { grid-template-columns: 20px minmax(0, 1fr); }
   .project-image-typographic { padding: 22px; }
 }
+
+
+/* The hero stays anchored by one finished website, with the wider service range underneath. */
+.hero-site-related {
+  margin-top: 9px;
+  padding: 13px 16px 14px;
+  border: 1px solid #e4e8f1;
+  border-radius: 12px;
+  background: #f5f6fa;
+}
+.hero-site-related-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #7c8495;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.hero-site-directions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.hero-site-directions a {
+  display: inline-flex;
+  min-height: 29px;
+  align-items: center;
+  padding: 0 11px;
+  border: 1px solid #d9dfeb;
+  border-radius: 999px;
+  background: #fff;
+  color: #434b5d;
+  font-size: 10px;
+  font-weight: 600;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.hero-site-directions a:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+/* These are illustrative website directions. Keep the distinction visible, but tasteful. */
+.project-kind:not(.project-kind-real) {
+  background: rgba(255,255,255,.94);
+  color: #41495a;
+}
+.project-card-footer .project-visit {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid #d8deea;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+.project-card-footer .project-visit:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+@media (max-width: 760px) {
+  .hero-site-related { padding: 11px 12px 12px; }
+  .hero-site-directions { gap: 6px; }
+  .hero-site-directions a { min-height: 28px; font-size: 9px; }
+}
+@media (max-width: 470px) {
+  .project-card-footer .project-visit { min-height: 34px; }
+}
