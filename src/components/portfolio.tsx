@@ -104,7 +104,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           />
         ) : (
           <div className="project-image-fallback-content" aria-hidden="true">
-            <span>{project.category} / WEBSITE DEMO</span>
+            <span>{project.category} / WEBSITE CONCEPT</span>
             <strong>{project.title}</strong>
           </div>
         )}
