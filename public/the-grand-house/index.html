@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e8">
+  <meta name="description" content="Discover The Grand House, a fictional boutique hotel concept in Gardens, Cape Town. Explore rooms, dining and a considered stay in the city.">
+  <title>The Grand House | A considered Cape Town stay</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body id="top" data-page="home">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="top-note"><span class="status-dot"></span> GARDENS, CAPE TOWN <span class="top-note-separator">·</span> A CITY STAY, THOUGHTFULLY CONSIDERED</div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="The Grand House home">
+      <span class="brand-mark">GH</span>
+      <span class="brand-wordmark"><strong>THE GRAND HOUSE</strong><small>GARDENS · CAPE TOWN</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">The hotel</a>
+      <a href="rooms.html" >Rooms & suites</a>
+      <a href="dining.html" >Dining</a>
+      <a href="cape-town.html" >Cape Town</a>
+    </nav>
+    <div class="header-actions"><a class="button button-dark button-small" href="availability.html">Check availability</a></div>
+  </header>
+<main id="main">
+  <section class="home-hero">
+    <img class="hero-image" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2200&q=88" alt="Sunlit boutique hotel pool framed by elegant architecture" fetchpriority="high">
+    <div class="hero-shade"></div>
+    <div class="hero-content">
+      <span class="hero-kicker"><span class="hero-kicker-line"></span> GARDENS, CAPE TOWN</span>
+      <h1>A little more<br><em>room to arrive.</em></h1>
+      <p>Come for the city. Stay for the feeling of being somewhere considered, quietly comfortable and entirely your own.</p>
+      <div class="hero-actions"><a class="button button-light" href="rooms.html">Explore the rooms</a><a class="text-link light-link" href="cape-town.html">Get to know the neighbourhood</a></div>
+    </div>
+    <div class="hero-caption"><span>01 / THE HOUSE</span><span>DESIGNED FOR THE WAY YOU TRAVEL</span></div>
+  </section>
+
+  <section class="search-wrap" aria-label="Plan your stay">
+    <form class="stay-search" data-search-form>
+      <div class="search-intro"><span class="eyebrow">YOUR STAY, YOUR WAY</span><strong>Find your room</strong></div>
+      <label class="search-field"><span>CHECK-IN</span><input type="date" name="arrival" data-date-role="arrival" required><small>DD/MM/YYYY</small></label>
+      <label class="search-field"><span>CHECK-OUT</span><input type="date" name="departure" data-date-role="departure" required><small>DD/MM/YYYY</small></label>
+      <label class="search-field search-select"><span>ADULTS</span><select name="adults"><option value="1">1 adult</option><option value="2" selected>2 adults</option><option value="3">3 adults</option><option value="4">4 adults</option></select></label>
+      <label class="search-field search-select"><span>ROOMS</span><select name="rooms"><option value="1" selected>1 room</option><option value="2">2 rooms</option><option value="3">3 rooms</option></select></label>
+      <button class="button button-dark search-submit" type="submit">Find a stay</button>
+    </form>
+  </section>
+
+  <section class="intro-section section-pad" id="hotel">
+    <div class="intro-copy">
+      <span class="eyebrow">THE HOUSE, IN THE CITY</span>
+      <h2>Close to everything.<br><em>Comfortably away from it.</em></h2>
+      <p>Set in Gardens, with the city unfolding just beyond the front door, The Grand House is imagined as a place to pause between plans. Mornings begin slowly. Afternoons belong to the city. Evenings bring you back to somewhere warm.</p>
+      <a class="button button-outline" href="cape-town.html">Explore our corner of Cape Town</a>
+    </div>
+    <div class="intro-photo-wrap">
+      <img class="intro-photo" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=86" alt="Warm, thoughtfully furnished hotel lounge with natural materials" loading="lazy">
+      <span class="photo-note">A PLACE TO SETTLE IN</span>
+    </div>
+  </section>
+
+  <section class="rooms-section section-pad">
+    <div class="section-heading"><div><span class="eyebrow">ROOM TO MAKE YOUR OWN</span><h2>Stay a little <em>longer.</em></h2></div><a class="button button-outline" href="rooms.html">View all rooms</a></div>
+    <div class="room-preview-grid">
+      <article class="room-preview room-preview-tall"><a href="rooms.html#classic" class="room-photo-link"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=86" alt="Classic king hotel room with warm neutral decor" loading="lazy"></a><div class="room-preview-info"><div><span class="eyebrow">01 · THE ESSENTIAL</span><h3>Classic King</h3><p>Thoughtful comfort, with space to unwind.</p></div><a class="round-link" href="rooms.html#classic" aria-label="Explore Classic King">Explore</a></div></article>
+      <article class="room-preview"><a href="rooms.html#garden" class="room-photo-link"><img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=86" alt="Spacious boutique hotel suite with soft natural light" loading="lazy"></a><div class="room-preview-info"><div><span class="eyebrow">02 · A LITTLE MORE SPACE</span><h3>Garden Suite</h3><p>A generous room for slower mornings.</p></div><a class="round-link" href="rooms.html#garden" aria-label="Explore Garden Suite">Explore</a></div></article>
+      <article class="room-preview"><a href="rooms.html#terrace" class="room-photo-link"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=86" alt="Elegant terrace suite with contemporary furnishings" loading="lazy"></a><div class="room-preview-info"><div><span class="eyebrow">03 · THE SIGNATURE</span><h3>Grand Terrace</h3><p>Room to linger, with a private outdoor space.</p></div><a class="round-link" href="rooms.html#terrace" aria-label="Explore Grand Terrace">Explore</a></div></article>
+    </div>
+  </section>
+
+  <section class="feature-split dining-feature">
+    <div class="feature-image"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1500&q=86" alt="Beautifully set restaurant table with a seasonal dinner" loading="lazy"></div>
+    <div class="feature-copy"><span class="eyebrow">AT THE HOUSE TABLE</span><h2>Good food.<br><em>No occasion needed.</em></h2><p>Easy breakfasts, relaxed lunches and evenings that can stretch a little longer. The Morning Room is imagined as the house's all-day gathering place, with a menu shaped by the seasons and the city.</p><a class="button button-light" href="dining.html">Discover dining</a></div>
+  </section>
+
+  <section class="city-section section-pad">
+    <div class="city-image-wrap"><img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=1400&q=86" alt="Cape Town city and mountain landscape" loading="lazy"><span class="city-image-label">CAPE TOWN, SOUTH AFRICA</span></div>
+    <div class="city-copy"><span class="eyebrow">A GOOD PLACE TO START</span><h2>The city is<br><em>right here.</em></h2><p>Spend the morning in the gardens, find a table on Kloof Street, or take the long way back beneath the mountain. The Grand House puts you close to the everyday pleasures and big views that make Cape Town memorable.</p><a class="button button-outline" href="cape-town.html">Explore the city guide</a></div>
+  </section>
+
+  <section class="closing-cta section-pad" id="contact">
+    <div><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2>Your Cape Town stay<br><em>starts here.</em></h2></div>
+    <div class="closing-action"><p>Choose your dates and take a look at the rooms imagined for your stay.</p><a class="button button-dark" href="availability.html">Check availability</a></div>
+  </section>
+</main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand-block">
+        <a class="brand brand-footer" href="index.html"><span class="brand-mark">GH</span><span class="brand-wordmark"><strong>THE GRAND HOUSE</strong><small>GARDENS · CAPE TOWN</small></span></a>
+        <p>A considered city stay, close to the places that make Cape Town feel like Cape Town.</p>
+      </div>
+      <div class="footer-links"><span class="eyebrow">EXPLORE</span><a href="rooms.html">Rooms & suites</a><a href="dining.html">Dining</a><a href="cape-town.html">The neighbourhood</a></div>
+      <div class="footer-links"><span class="eyebrow">PLAN YOUR STAY</span><a href="availability.html">Check availability</a><a href="index.html#contact">Contact the house</a><span class="footer-location">Gardens, Cape Town<br>South Africa</span></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 The Grand House · Website concept</span><span>Illustrative property, rooms, rates and availability</span><a href="#top">Back to top</a></div>
+  </footer>
+  <div class="demo-notice">THE GRAND HOUSE IS A FICTIONAL WEBSITE CONCEPT. Sample rates and availability are illustrative. No reservation, payment or guest information is submitted or stored.</div>
+</body>
+</html>
