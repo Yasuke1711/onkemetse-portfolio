@@ -379,7 +379,7 @@ export default function Portfolio() {
       <section className="work-section page-section" id="work">
         <div className="section-heading work-heading">
           <Reveal><p className="eyebrow">WEBSITE SHOWCASE</p><h2>One website live.<br /><em>Many directions to explore.</em></h2></Reveal>
-          <Reveal delay={0.1}><p className="section-intro">One completed client website, alongside a catalogue of visual directions for different businesses. Stock photography is illustrative; these concepts are starting points, not finished client builds.</p></Reveal>
+          <Reveal delay={0.1}><p className="section-intro">One completed client website, alongside complete website concept builds for very different kinds of businesses. Each concept explores its own visual identity and customer journey; stock photography is illustrative where used.</p></Reveal>
         </div>
         <div className="project-toolbar">
           <div className="filter-label">EXPLORE WEBSITE TYPES <span>{String(filteredProjects.length).padStart(2, "0")} DIRECTIONS</span></div>
