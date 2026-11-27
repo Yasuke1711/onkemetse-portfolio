@@ -91,8 +91,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ duration: 0.32, delay: Math.min(index * 0.025, 0.15) }}
       className="project-card"
     >
-      <div className={`project-image${imageFailed ? " project-image-fallback" : ""}`}>
-        {!imageFailed ? (
+      <div className={`project-image${project.image ? (imageFailed ? " project-image-fallback" : "") : " project-image-typographic"}`} style={!project.image ? { backgroundColor: project.accent } : undefined}>
+        {project.image && !imageFailed ? (
           <Image
             src={project.image}
             alt={project.imageAlt}
@@ -104,7 +104,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           />
         ) : (
           <div className="project-image-fallback-content" aria-hidden="true">
-            <span>{project.category}</span>
+            <span>{project.category} / WEBSITE DEMO</span>
             <strong>{project.title}</strong>
           </div>
         )}
@@ -119,8 +119,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <p className="project-category">{project.category}</p>
         <h3>{project.title}</h3>
         <p className="project-description">{project.description}</p>
-        <div className="tag-list">
-          {project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
+        <div className="project-card-footer">
+          <div className="tag-list">
+            {project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
+          </div>
+          <a className="project-visit" href={project.url} target="_blank" rel="noreferrer">Visit website</a>
         </div>
       </div>
     </motion.article>
@@ -303,20 +306,41 @@ export default function Portfolio() {
           </Reveal>
         </div>
         <Reveal delay={0.1} className="hero-visual-wrap">
-          <div className="hero-board">
-            <div className="hero-board-sheet">
-              <div className="hero-board-top">
-                <span>ONKEMETSE KHAVARA</span>
-                <span>PERSONAL WORK · 2026</span>
+          <div className="hero-site-preview">
+            <div className="hero-site-card">
+              <div className="hero-site-header">
+                <div className="hero-site-brand">
+                  <Image src="/images/mckay-mark-gold.svg" alt="" width={46} height={32} unoptimized />
+                  <span><strong>McKAY <i>&amp;</i> CO</strong><small>PLANT HIRE &amp; CONSTRUCTION</small></span>
+                </div>
+                <span className="hero-site-location">BOTSWANA</span>
               </div>
-              <div className="hero-board-main">
-                <span className="hero-board-label">A FEW THINGS I&apos;M WORKING ON</span>
-                <div className="hero-monogram" aria-hidden="true">OK</div>
-                <p>Websites. Software.<br /><em>Ideas in progress.</em></p>
+              <div className="hero-site-image">
+                <Image
+                  src="/images/mckay-hero.webp"
+                  alt="Excavator at work on a prepared construction site"
+                  fill
+                  sizes="(max-width: 760px) 100vw, 510px"
+                  unoptimized
+                  className="hero-site-photo"
+                />
+                <div className="hero-site-image-shade" />
+                <div className="hero-site-copy">
+                  <span>BOTSWANA / PLANT HIRE &amp; CONSTRUCTION</span>
+                  <h2>For the work<br /><em>that moves us.</em></h2>
+                  <p>Equipment and project support for the work ahead.</p>
+                </div>
               </div>
-              <div className="hero-board-bottom">
-                <span>BOTSWANA</span>
-                <span>BUILDING, LEARNING, REPEATING</span>
+              <div className="hero-site-foot">
+                <span>FEATURED WEBSITE <i>·</i> 2026</span>
+                <a href="https://mckay-co-public-website-next.vercel.app/" target="_blank" rel="noreferrer">View live website</a>
+              </div>
+            </div>
+            <div className="hero-site-related">
+              <span className="hero-site-related-label">ALSO IN THE COLLECTION</span>
+              <div className="hero-site-related-list">
+                <a href="https://kagoconstructions.netlify.app/" target="_blank" rel="noreferrer"><span>02</span><b>Kago Constructions</b><small>Website demo</small></a>
+                <a href="https://belle-lumiere.netlify.app/" target="_blank" rel="noreferrer"><span>03</span><b>Belle Lumiere</b><small>Website demo</small></a>
               </div>
             </div>
           </div>
@@ -347,8 +371,8 @@ export default function Portfolio() {
 
       <section className="work-section page-section" id="work">
         <div className="section-heading work-heading">
-          <Reveal><p className="eyebrow">SELECTED WORK</p><h2>A few things I&apos;ve built.<br /><em>And ideas I&apos;m exploring.</em></h2></Reveal>
-          <Reveal delay={0.1}><p className="section-intro">A selection of projects and original website concepts across different industries. Concept demonstrations are clearly labelled and are not presented as commissioned client work.</p></Reveal>
+          <Reveal><p className="eyebrow">SELECTED WORK</p><h2>A few websites.<br /><em>Different jobs, different character.</em></h2></Reveal>
+          <Reveal delay={0.1}><p className="section-intro">A live client website alongside two independently built website demos. Each is shown for what it is, not dressed up as commissioned work.</p></Reveal>
         </div>
         <div className="project-toolbar">
           <div className="filter-label">EXPLORE BY CATEGORY <span>{String(filteredProjects.length).padStart(2, "0")} PROJECTS</span></div>
@@ -363,8 +387,6 @@ export default function Portfolio() {
             {filteredProjects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} />)}
           </AnimatePresence>
         </motion.div>
-        <Reveal className="project-note"><span>MORE IN THE WORKS</span><p>The demonstration library will keep growing. Each concept is being designed as its own distinct website, not a recoloured template.</p></Reveal>
-
         <Reveal className="pricing-section">
           <div className="pricing-title-row"><div><p className="eyebrow">WORKING TOGETHER</p><h2>Good work.<br /><em>Clear expectations.</em></h2></div><p>Starting prices for small and growing businesses. Tell me what you&apos;re trying to build and I&apos;ll help shape the right scope.</p></div>
           <CurrencyPricing />
