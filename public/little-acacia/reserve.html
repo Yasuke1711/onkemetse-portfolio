@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231c">
+  <meta name="description" content="Review your stay details and prepare a booking enquiry for Little Acacia Guest House.">
+  <title>Prepare an enquiry | Little Acacia Guest House</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body id="top" data-page="reserve">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="Little Acacia home">
+      <svg class="brand-symbol" viewBox="0 0 52 52" aria-hidden="true"><path d="M26 43V24M26 31C18 27 14 20 15 13C22 14 27 18 28 25M26 26C29 17 36 12 43 12C43 20 37 27 26 30M26 21C23 14 18 9 11 8C10 16 16 22 26 25M18 43H34" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="brand-wordmark"><strong>LITTLE ACACIA</strong><small>GUEST HOUSE · SOUTHERN AFRICA</small></span>
+    </a>
+    <button class="nav-toggle" type="button" data-menu-toggle aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" data-main-nav aria-label="Main navigation">
+      <a href="the-house.html">The House</a><a href="stay.html">Stay</a><a href="dining.html">Dining</a><a href="experiences.html">Experiences</a>
+    </nav>
+    <a class="button button-light header-book" href="availability.html">Plan your stay</a>
+  </header>
+  <main id="main"><section class="booking-page-hero reserve-hero"><span class="eyebrow">A FEW DETAILS, THEN WE CAN BEGIN</span><h1>Your stay,<br><em>taking shape.</em></h1><p>Review the details below and prepare an enquiry to share with the house.</p></section>
+  <section class="reserve-wrap section-pad">
+    <div class="reserve-summary">
+      <span class="eyebrow">YOUR STAY SUMMARY</span><h2 data-reserve-room>Your room will appear here.</h2>
+      <div class="summary-grid"><div><span>ARRIVAL</span><strong data-reserve-arrival>Not selected</strong></div><div><span>DEPARTURE</span><strong data-reserve-departure>Not selected</strong></div><div><span>GUESTS</span><strong data-reserve-guests>2 guests</strong></div><div><span>LENGTH OF STAY</span><strong data-reserve-nights>To be confirmed</strong></div></div>
+      <a class="text-link-dark" href="availability.html">Edit your stay details</a>
+    </div>
+    <form class="reserve-form" data-reserve-form>
+      <div class="reserve-form-heading"><span class="eyebrow">A NOTE FROM YOU</span><h2>Who is joining us?</h2><p>Share your details and anything that would help us prepare for your visit.</p></div>
+      <div class="form-grid">
+        <label><span>YOUR NAME</span><input type="text" name="name" autocomplete="name" placeholder="Full name" required></label>
+        <label><span>EMAIL ADDRESS</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+        <label><span>PHONE NUMBER</span><input type="tel" name="phone" autocomplete="tel" placeholder="Include country code"></label>
+        <label><span>OCCASION</span><select name="occasion"><option value="No special occasion">No special occasion</option><option value="A quiet break">A quiet break</option><option value="Birthday">Birthday</option><option value="Anniversary">Anniversary</option><option value="Family time">Family time</option><option value="Other celebration">Other celebration</option></select></label>
+      </div>
+      <label class="message-field"><span>ANYTHING ELSE WE SHOULD KNOW?</span><textarea name="message" rows="4" placeholder="Dietary needs, preferred room details or something you would like to arrange..."></textarea></label>
+      <div class="reserve-actions"><button class="button button-dark" type="submit">Prepare my enquiry</button><a class="button button-outline" href="availability.html">Back to room selection</a></div>
+      <p class="form-feedback" data-form-feedback role="status" aria-live="polite"></p>
+      <p class="demo-disclaimer">This concept does not send or store your details. Selecting “Prepare my enquiry” creates a message on this device for you to copy and send through your preferred channel.</p>
+    </form>
+  </section>
+  <section class="enquiry-output section-pad" data-enquiry-output hidden><div><span class="eyebrow">READY TO SHARE</span><h2>Your note is<br><em>ready.</em></h2><p>Copy the enquiry below and send it to the property once its contact details are confirmed.</p></div><div class="enquiry-text"><pre data-enquiry-text></pre><button class="button button-light" type="button" data-copy-enquiry>Copy enquiry</button><span class="copy-feedback" data-copy-feedback role="status" aria-live="polite"></span></div></section></main>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand-block">
+        <a class="brand brand-footer" href="index.html">
+          <svg class="brand-symbol" viewBox="0 0 52 52" aria-hidden="true"><path d="M26 43V24M26 31C18 27 14 20 15 13C22 14 27 18 28 25M26 26C29 17 36 12 43 12C43 20 37 27 26 30M26 21C23 14 18 9 11 8C10 16 16 22 26 25M18 43H34" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="brand-wordmark"><strong>LITTLE ACACIA</strong><small>GUEST HOUSE · SOUTHERN AFRICA</small></span>
+        </a>
+        <p>A private house shaped by shade, stillness and the quiet pleasure of being well looked after.</p>
+      </div>
+      <div class="footer-links"><span class="footer-label">DISCOVER</span><a href="the-house.html">The house</a><a href="stay.html">Rooms and suites</a><a href="dining.html">Dining</a><a href="experiences.html">Experiences</a></div>
+      <div class="footer-links"><span class="footer-label">PLAN A STAY</span><a href="availability.html">Availability and rates</a><a href="reserve.html">Your enquiry</a><span class="footer-location">Southern Africa<br>Exact setting shared on enquiry</span></div>
+      <div class="footer-contact"><span class="footer-label">A LITTLE NOTE</span><p>Some places ask you to do more. This one gives you room to do less.</p><a class="footer-cta" href="availability.html">Make room for a stay</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Little Acacia Guest House · Website concept</span><span>Illustrative property, photography, rates and availability</span><a href="#top">Back to top</a></div>
+  </footer>
+  <div class="notice-bar" data-notice>Concept demonstration. Enquiries are prepared locally and are not sent to a property.</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231c">
+  <meta name="description" content="Choose your dates and preferred room to prepare an enquiry for Little Acacia Guest House.">
+  <title>Availability and rates | Little Acacia Guest House</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body id="top" data-page="availability">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="Little Acacia home">
+      <svg class="brand-symbol" viewBox="0 0 52 52" aria-hidden="true"><path d="M26 43V24M26 31C18 27 14 20 15 13C22 14 27 18 28 25M26 26C29 17 36 12 43 12C43 20 37 27 26 30M26 21C23 14 18 9 11 8C10 16 16 22 26 25M18 43H34" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="brand-wordmark"><strong>LITTLE ACACIA</strong><small>GUEST HOUSE · SOUTHERN AFRICA</small></span>
+    </a>
+    <button class="nav-toggle" type="button" data-menu-toggle aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" data-main-nav aria-label="Main navigation">
+      <a href="the-house.html">The House</a><a href="stay.html">Stay</a><a href="dining.html">Dining</a><a href="experiences.html">Experiences</a>
+    </nav>
+    <a class="button button-light header-book" href="availability.html">Plan your stay</a>
+  </header>
+  <main id="main"><section class="booking-page-hero"><span class="eyebrow">PLAN YOUR TIME HERE</span><h1>Find your<br><em>place.</em></h1><p>Choose a few details and explore the spaces imagined for your stay.</p></section>
+  <section class="availability-wrap section-pad">
+    <form class="availability-search" data-availability-form>
+      <label><span>ARRIVAL</span><input type="date" name="arrival" data-arrival required></label>
+      <label><span>DEPARTURE</span><input type="date" name="departure" data-departure required></label>
+      <label><span>GUESTS</span><select name="guests"><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option></select></label>
+      <label><span>PREFERRED ROOM</span><select name="room"><option value="Any room">Any room</option><option value="Acacia Suite">The Acacia Suite</option><option value="Garden Pavilion">The Garden Pavilion</option><option value="Acacia Residence">The Acacia Residence</option></select></label>
+      <button class="button button-dark" type="submit">Explore rooms</button>
+    </form>
+    <div class="availability-summary" data-availability-summary><span class="eyebrow">YOUR STAY</span><strong>Select your dates to begin.</strong><p>Choose arrival, departure and guests above. We will show the spaces that fit your enquiry.</p></div>
+    <div class="availability-results" data-availability-results>
+      <article class="availability-card" data-room-card data-room="Acacia Suite" data-capacity="2">
+        <img src="https://images.unsplash.com/photo-1774280954999-9758f11f3d41?auto=format&fit=crop&w=1100&q=84" alt="The Acacia Suite" loading="lazy">
+        <div class="availability-card-copy"><span class="eyebrow">THE SIGNATURE ROOM · UP TO 2</span><h2>The Acacia Suite</h2><p>Quietly generous, with a private terrace and room to unwind.</p><span class="rate-note">Flexible stay · Rate on request</span><button class="button button-dark" type="button" data-select-room="Acacia Suite">Choose this room</button></div>
+      </article>
+      <article class="availability-card" data-room-card data-room="Garden Pavilion" data-capacity="2">
+        <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1100&q=84" alt="The Garden Pavilion" loading="lazy">
+        <div class="availability-card-copy"><span class="eyebrow">PRIVATE RETREAT · UP TO 2</span><h2>The Garden Pavilion</h2><p>A tucked-away hideaway opening onto its own garden setting.</p><span class="rate-note">Flexible stay · Rate on request</span><button class="button button-dark" type="button" data-select-room="Garden Pavilion">Choose this room</button></div>
+      </article>
+      <article class="availability-card" data-room-card data-room="Acacia Residence" data-capacity="4">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=84" alt="The Acacia Residence" loading="lazy">
+        <div class="availability-card-copy"><span class="eyebrow">THE PRIVATE HOUSE · UP TO 4</span><h2>The Acacia Residence</h2><p>Two bedrooms and generous shared spaces for family or friends.</p><span class="rate-note">Flexible stay · Rate on request</span><button class="button button-dark" type="button" data-select-room="Acacia Residence">Choose this residence</button></div>
+      </article>
+    </div>
+    <p class="demo-disclaimer">This is a website concept, not a live booking engine. Room fit, rates and availability are illustrative. Your selection prepares an enquiry only and does not reserve a room or take payment.</p>
+  </section></main>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand-block">
+        <a class="brand brand-footer" href="index.html">
+          <svg class="brand-symbol" viewBox="0 0 52 52" aria-hidden="true"><path d="M26 43V24M26 31C18 27 14 20 15 13C22 14 27 18 28 25M26 26C29 17 36 12 43 12C43 20 37 27 26 30M26 21C23 14 18 9 11 8C10 16 16 22 26 25M18 43H34" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="brand-wordmark"><strong>LITTLE ACACIA</strong><small>GUEST HOUSE · SOUTHERN AFRICA</small></span>
+        </a>
+        <p>A private house shaped by shade, stillness and the quiet pleasure of being well looked after.</p>
+      </div>
+      <div class="footer-links"><span class="footer-label">DISCOVER</span><a href="the-house.html">The house</a><a href="stay.html">Rooms and suites</a><a href="dining.html">Dining</a><a href="experiences.html">Experiences</a></div>
+      <div class="footer-links"><span class="footer-label">PLAN A STAY</span><a href="availability.html">Availability and rates</a><a href="reserve.html">Your enquiry</a><span class="footer-location">Southern Africa<br>Exact setting shared on enquiry</span></div>
+      <div class="footer-contact"><span class="footer-label">A LITTLE NOTE</span><p>Some places ask you to do more. This one gives you room to do less.</p><a class="footer-cta" href="availability.html">Make room for a stay</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Little Acacia Guest House · Website concept</span><span>Illustrative property, photography, rates and availability</span><a href="#top">Back to top</a></div>
+  </footer>
+  <div class="notice-bar" data-notice>Concept demonstration. Enquiries are prepared locally and are not sent to a property.</div>
+</body>
+</html>
