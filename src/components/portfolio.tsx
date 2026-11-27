@@ -110,7 +110,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         )}
         <div className="project-image-topline">
           <span className={`project-kind ${project.kind === "Selected work" ? "project-kind-real" : ""}`}>
-            {project.kind === "Selected work" ? "Selected work" : "Concept demo"}
+            {project.kind === "Selected work" ? "Selected work" : "Website concept"}
           </span>
           <span className="project-year">{project.year}</span>
         </div>
@@ -123,7 +123,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <div className="tag-list">
             {project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
           </div>
-          <a className="project-visit" href={project.url} target="_blank" rel="noreferrer">Visit website</a>
+          {project.url ? (
+            <a className="project-visit" href={project.url} target="_blank" rel="noreferrer">Visit website</a>
+          ) : (
+            <a className="project-visit" href="#contact">Discuss a website like this</a>
+          )}
         </div>
       </div>
     </motion.article>
@@ -233,7 +237,7 @@ export default function Portfolio() {
   const filteredProjects = useMemo(() => {
     if (activeFilter === "All") return projects;
     if (activeFilter === "Selected work") return projects.filter((project) => project.kind === "Selected work");
-    if (activeFilter === "Concept demos") return projects.filter((project) => project.kind === "Concept demo");
+    if (activeFilter === "Website concepts") return projects.filter((project) => project.kind === "Website concept");
     return projects.filter((project) => project.category === activeFilter);
   }, [activeFilter]);
 
@@ -337,10 +341,13 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="hero-site-related">
-              <span className="hero-site-related-label">ALSO IN THE COLLECTION</span>
-              <div className="hero-site-related-list">
-                <a href="https://kagoconstructions.netlify.app/" target="_blank" rel="noreferrer"><span>02</span><b>Kago Constructions</b><small>Website demo</small></a>
-                <a href="https://belle-lumiere.netlify.app/" target="_blank" rel="noreferrer"><span>03</span><b>Belle Lumiere</b><small>Website demo</small></a>
+              <span className="hero-site-related-label">WEBSITE DIRECTIONS</span>
+              <div className="hero-site-directions">
+                <a href="#work">Hospitality</a>
+                <a href="#work">Restaurants &amp; cafés</a>
+                <a href="#work">Retail &amp; interiors</a>
+                <a href="#work">Professional services</a>
+                <a href="#work">Tourism &amp; events</a>
               </div>
             </div>
           </div>
@@ -371,11 +378,11 @@ export default function Portfolio() {
 
       <section className="work-section page-section" id="work">
         <div className="section-heading work-heading">
-          <Reveal><p className="eyebrow">SELECTED WORK</p><h2>A few websites.<br /><em>Different jobs, different character.</em></h2></Reveal>
-          <Reveal delay={0.1}><p className="section-intro">A live client website alongside two independently built website demos. Each is shown for what it is, not dressed up as commissioned work.</p></Reveal>
+          <Reveal><p className="eyebrow">WEBSITE SHOWCASE</p><h2>One website live.<br /><em>Many directions to explore.</em></h2></Reveal>
+          <Reveal delay={0.1}><p className="section-intro">One completed client website, alongside a catalogue of visual directions for different businesses. Stock photography is illustrative; these concepts are starting points, not finished client builds.</p></Reveal>
         </div>
         <div className="project-toolbar">
-          <div className="filter-label">EXPLORE BY CATEGORY <span>{String(filteredProjects.length).padStart(2, "0")} PROJECTS</span></div>
+          <div className="filter-label">EXPLORE WEBSITE TYPES <span>{String(filteredProjects.length).padStart(2, "0")} DIRECTIONS</span></div>
           <div className="filter-list" role="group" aria-label="Filter projects">
             {projectFilters.map((filter) => (
               <button key={filter} type="button" className={activeFilter === filter ? "filter-chip filter-chip-active" : "filter-chip"} onClick={() => setActiveFilter(filter)} aria-pressed={activeFilter === filter}>{filter}</button>
