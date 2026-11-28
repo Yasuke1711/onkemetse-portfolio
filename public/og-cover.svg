@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#f3f5fa"/><path d="M0 0H1200V12H0Z" fill="#4856a6"/>
+<rect x="770" y="0" width="430" height="630" fill="#e9edf6"/>
+<circle cx="1000" cy="290" r="155" fill="none" stroke="#c8d0eb" stroke-width="2"/><circle cx="1000" cy="290" r="105" fill="none" stroke="#c8d0eb" stroke-width="2"/>
+<path d="M84 110H252" stroke="#4856a6" stroke-width="5"/>
+<text x="84" y="160" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#4856a6" letter-spacing="1">ONKEMETSE KHAVARA</text>
+<text x="84" y="270" font-family="Arial,sans-serif" font-size="76" font-weight="700" fill="#202431">Independent</text>
+<text x="84" y="355" font-family="Arial,sans-serif" font-size="76" font-weight="700" fill="#202431">Developer.</text>
+<text x="84" y="435" font-family="Georgia,serif" font-size="34" fill="#4856a6">Websites, applications and software.</text>
+<text x="84" y="490" font-family="Arial,sans-serif" font-size="19" fill="#626978">Computer Science · AI-integrated systems · Botswana</text>
+<rect x="84" y="535" width="210" height="58" rx="29" fill="#202431"/><text x="110" y="572" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#fff">PORTFOLIO</text>
+<text x="1000" y="515" font-family="Arial,sans-serif" font-size="19" font-weight="700" text-anchor="middle" fill="#4856a6">2026</text>
+</svg>

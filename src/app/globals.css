@@ -2031,3 +2031,20 @@ body {
   padding-block: 42px;
 }
 .project-rail-single .project-rail-track { transform: none !important; }
+
+
+/* Phase two: case-study links, CV action and contact form states */
+.about-actions { display:flex; flex-wrap:wrap; align-items:center; gap:18px; margin-top:4px; }
+.about-actions .button { min-height:44px; padding:0 17px; font-size:11px; }
+.project-actions { display:flex; flex-wrap:wrap; align-items:center; gap:14px; }
+.project-visit-secondary { color:var(--muted); }
+.project-rail-actions { display:flex; align-items:center; flex-wrap:wrap; gap:18px; }
+.project-rail-link-secondary { color:rgba(255,255,255,.72); }
+.contact-honeypot { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0,0,0,0) !important; white-space:nowrap !important; border:0 !important; }
+.contact-privacy-note { margin:0; color:var(--muted-light); font-size:11px; line-height:1.6; }
+.form-submit:disabled { opacity:.7; cursor:wait; }
+@media (max-width: 760px) {
+  .about-actions { align-items:flex-start; }
+  .project-actions { gap:10px; }
+  .project-rail-actions { gap:12px; }
+}
