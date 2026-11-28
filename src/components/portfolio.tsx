@@ -123,7 +123,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <div className="tag-list">
             {project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
           </div>
-          {project.url ? (
+          {project.caseStudy ? (
+            <div className="project-actions">
+              <a className="project-visit" href={`/work/${project.slug}`}>Read case study</a>
+              {project.url && <a className="project-visit project-visit-secondary" href={project.url} target="_blank" rel="noreferrer">Visit website</a>}
+            </div>
+          ) : project.url ? (
             <a className="project-visit" href={project.url} target="_blank" rel="noreferrer">Visit website</a>
           ) : (
             <a className="project-visit" href="#contact">Discuss a website like this</a>
@@ -196,7 +201,12 @@ function ProjectRail({ items }: { items: Project[] }) {
                   <h4>{project.title}</h4>
                   <p>{project.description}</p>
                 </div>
-                {project.url ? (
+                {project.caseStudy ? (
+                  <div className="project-rail-actions">
+                    <a href={`/work/${project.slug}`} className="project-rail-link">Read case study</a>
+                    {project.url && <a href={project.url} target="_blank" rel="noreferrer" className="project-rail-link project-rail-link-secondary">Visit website</a>}
+                  </div>
+                ) : project.url ? (
                   <a href={project.url} target="_blank" rel="noreferrer" className="project-rail-link">Visit website</a>
                 ) : (
                   <a href="#contact" className="project-rail-link">Discuss a project</a>
@@ -309,6 +319,7 @@ export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [formStatus, setFormStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "dragnelkhavara@gmail.com";
 
   const filteredProjects = useMemo(() => {
@@ -337,21 +348,49 @@ export default function Portfolio() {
     return () => observer.disconnect();
   }, []);
 
-  const handleContactSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!contactEmail) {
-      setFormStatus("The contact email hasn't been connected yet. Add NEXT_PUBLIC_CONTACT_EMAIL before publishing.");
-      return;
-    }
     const form = new FormData(event.currentTarget);
     const name = String(form.get("name") ?? "").trim();
     const email = String(form.get("email") ?? "").trim();
     const projectType = String(form.get("projectType") ?? "Website enquiry");
     const message = String(form.get("message") ?? "").trim();
-    const subject = encodeURIComponent(`Project enquiry from ${name || "portfolio visitor"}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nProject: ${projectType}\n\n${message}`);
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-    setFormStatus("Your email app should open with the enquiry ready to send.");
+    const companyWebsite = String(form.get("companyWebsite") ?? "").trim();
+
+    const openEmailFallback = (reason: string) => {
+      const subject = encodeURIComponent(`Project enquiry from ${name || "portfolio visitor"}`);
+      const body = encodeURIComponent(`Name: ${name}\\nEmail: ${email}\\nProject: ${projectType}\\n\\n${message}`);
+      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+      setFormStatus(reason);
+    };
+
+    if (!contactEmail) {
+      setFormStatus("The contact inbox has not been configured yet. Please use the email address shown beside this form.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setFormStatus("");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, projectType, message, companyWebsite }),
+      });
+      const result = (await response.json()) as { ok?: boolean; code?: string };
+      if (response.ok && result.ok) {
+        setFormStatus("Thanks. Your enquiry has been sent, and I will get back to you.");
+        event.currentTarget.reset();
+      } else if (result.code === "not_configured") {
+        openEmailFallback("The online inbox is being connected. Your enquiry has been prepared in your email app instead.");
+      } else {
+        setFormStatus("The enquiry could not be sent just now. Please email me directly using the address shown beside this form.");
+      }
+    } catch {
+      openEmailFallback("The online form could not connect. Your enquiry has been prepared in your email app instead.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -449,7 +488,10 @@ export default function Portfolio() {
             <p>That curiosity now takes shape in a few different ways. I created Infinite Game Master, an AI-driven roleplaying engine, and I am building The Bind Suite, a family of creative desktop applications. InkBind and SketchBind are functionally usable, while ComicBind is in development.</p>
             <p>I also developed OmniTech independently for the Google Gemini Hackathon: a camera-based field-safety assistant using Gemini Vision, structured safety classifications and safeguards. I completed a Bachelor of Science in Computer Science through University of the People in 2026, alongside introductory quantum computing studies through The Coding School (IBM).</p>
             <p>My interests continue beyond application development into AI architecture, persistent memory, computational intelligence and robotics. M.A.R.K. is one expression of that curiosity: an independent research concept for an AI research and engineering companion.</p>
-            <a className="text-link text-link-blue" href="#skills">Explore my toolkit</a>
+            <div className="about-actions">
+              <a className="text-link text-link-blue" href="#skills">Explore my toolkit</a>
+              <a className="button button-outline" href="/cv/Onkemetse-Khavara-CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
+            </div>
           </Reveal>
           <Reveal delay={0.12} className="timeline-card">
             <p className="eyebrow">A FEW MILESTONES</p>
@@ -553,17 +595,18 @@ export default function Portfolio() {
         </Reveal>
         <Reveal delay={0.12} className="contact-form-wrap">
           <form className="contact-form" onSubmit={handleContactSubmit}>
-            <label>Name<input name="name" type="text" placeholder="Your name" required /></label>
-            <label>Email<input name="email" type="email" placeholder="you@company.com" required /></label>
+            <label>Name<input name="name" type="text" placeholder="Your name" maxLength={100} required /></label>
+            <label>Email<input name="email" type="email" placeholder="you@company.com" maxLength={254} required /></label>
             <label>What are you looking to build?
               <select name="projectType" defaultValue="Business website">
                 <option>Business website</option><option>Hotel / guesthouse website</option><option>Restaurant website</option><option>Online store</option><option>Web application</option><option>Something else</option>
               </select>
             </label>
-            <label>Tell me a little about it<textarea name="message" rows={4} placeholder="A few details about your project…" required /></label>
-            <button className="button button-dark form-submit" type="submit">Send an enquiry</button>
+            <label>Tell me a little about it<textarea name="message" rows={4} placeholder="A few details about your project…" maxLength={4000} required /></label>
+            <label className="contact-honeypot" aria-hidden="true">Company website<input name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" /></label>
+            <button className="button button-dark form-submit" type="submit" disabled={isSubmitting}>{isSubmitting ? "Sending…" : "Send an enquiry"}</button>
+            <p className="contact-privacy-note">Your details are used only to respond to this enquiry.</p>
             {formStatus && <p className="form-status" role="status">{formStatus}</p>}
-            
           </form>
         </Reveal>
       </section>
