@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { type FormEvent, type ReactNode, useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
+import { type FormEvent, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { Project, projectFilters, projects } from "@/data/projects";
 
 type CurrencyCode = "BWP" | "ZAR" | "NAD" | "ZMW" | "USD" | "GBP" | "EUR" | "JPY" | "CNY" | "ZWG";
@@ -69,10 +69,10 @@ function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; 
   return (
     <motion.div
       className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: 26 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.14 }}
-      transition={{ duration: reduceMotion ? 0 : 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={reduceMotion ? false : { opacity: 0, y: 34, filter: "blur(7px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.16 }}
+      transition={{ duration: reduceMotion ? 0 : 0.82, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>
@@ -133,6 +133,83 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     </motion.article>
   );
 }
+
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 110, damping: 28, mass: 0.18 });
+  return <motion.div className="scroll-progress" style={{ scaleX: progress }} aria-hidden="true" />;
+}
+
+function ProjectRail({ items }: { items: Project[] }) {
+  const railRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: railRef,
+    offset: ["start start", "end end"],
+  });
+  const rawX = useTransform(scrollYProgress, [0, 1], ["0%", "-62%"]);
+  const x = useSpring(rawX, { stiffness: 76, damping: 25, mass: 0.28 });
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <section
+      ref={railRef}
+      className={`project-rail${reduceMotion ? " project-rail-reduced" : ""}${items.length === 1 ? " project-rail-single" : ""}`}
+      aria-label="Featured projects"
+    >
+      <div className="project-rail-sticky">
+        <div className="project-rail-heading">
+          <div>
+            <p className="eyebrow">A CLOSER LOOK</p>
+            <h3>Good ideas deserve<br /><em>room to breathe.</em></h3>
+          </div>
+          <p className="project-rail-instruction">
+            Three projects. Three different directions.
+            <span>{reduceMotion ? "Swipe to explore" : "Scroll to explore"}</span>
+          </p>
+        </div>
+        <motion.div className="project-rail-track" style={reduceMotion ? undefined : { x }}>
+          {items.map((project, index) => (
+            <article className="project-rail-card" key={project.slug}>
+              <div className="project-rail-media" style={!project.image ? { backgroundColor: project.accent } : undefined}>
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    sizes="(max-width: 760px) 84vw, 68vw"
+                    unoptimized
+                    className="project-rail-photo"
+                  />
+                ) : (
+                  <div className="project-rail-fallback">{project.title}</div>
+                )}
+                <div className="project-rail-shade" />
+                <div className="project-rail-image-meta">
+                  <span>{project.kind}</span>
+                  <span>{String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</span>
+                </div>
+                <span className="project-rail-image-category">{project.category}</span>
+              </div>
+              <div className="project-rail-copy">
+                <div>
+                  <p className="eyebrow">{project.year} · {project.category}</p>
+                  <h4>{project.title}</h4>
+                  <p>{project.description}</p>
+                </div>
+                {project.url ? (
+                  <a href={project.url} target="_blank" rel="noreferrer" className="project-rail-link">Visit website</a>
+                ) : (
+                  <a href="#contact" className="project-rail-link">Discuss a project</a>
+                )}
+              </div>
+            </article>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function CurrencyPricing() {
   const [currency, setCurrency] = useState<CurrencyCode>("BWP");
   const [rates, setRates] = useState<Record<string, number> | null>(null);
@@ -241,6 +318,12 @@ export default function Portfolio() {
     return projects.filter((project) => project.category === activeFilter);
   }, [activeFilter]);
 
+  const gridProjects = useMemo(() => {
+    if (activeFilter === "All") return filteredProjects.filter((project) => !project.featured);
+    if (activeFilter === "Selected work") return [];
+    return filteredProjects;
+  }, [activeFilter, filteredProjects]);
+
   useEffect(() => {
     const sections = navItems.map((item) => document.querySelector(item.href)).filter(Boolean) as Element[];
     const observer = new IntersectionObserver(
@@ -273,6 +356,7 @@ export default function Portfolio() {
 
   return (
     <main>
+      <ScrollProgress />
       <header className="site-header">
         <a className="wordmark" href="#home" aria-label="Onkemetse home" onClick={() => setMobileMenuOpen(false)}>
           Onkemetse <span>Khavara</span>
@@ -389,11 +473,19 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-        <motion.div layout className="project-grid">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} />)}
-          </AnimatePresence>
-        </motion.div>
+        {(activeFilter === "All" || activeFilter === "Selected work") && (
+          <ProjectRail items={activeFilter === "Selected work" ? projects.filter((project) => project.kind === "Selected work") : projects.filter((project) => project.featured)} />
+        )}
+        {gridProjects.length > 0 && (
+          <>
+            {activeFilter === "All" && <p className="project-collection-label">MORE DIRECTIONS TO EXPLORE <span>{String(gridProjects.length).padStart(2, "0")} CONCEPTS</span></p>}
+            <motion.div layout className="project-grid">
+              <AnimatePresence mode="popLayout">
+                {gridProjects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} />)}
+              </AnimatePresence>
+            </motion.div>
+          </>
+        )}
         <Reveal className="pricing-section">
           <div className="pricing-title-row"><div><p className="eyebrow">WORKING TOGETHER</p><h2>Good work.<br /><em>Clear expectations.</em></h2></div><p>Starting prices for small and growing businesses. Tell me what you&apos;re trying to build and I&apos;ll help shape the right scope.</p></div>
           <CurrencyPricing />
