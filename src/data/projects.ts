@@ -106,7 +106,7 @@ export const projects: Project[] = [
     accent: "#b79a69",
     tags: ["Flagship hospitality", "P9,000+ custom", "Stay enquiry"],
     featured: true,
-    url: "https://onkemetse-portfolio.vercel.app/little-acacia/",
+    url: "https://little-acacia-weld.vercel.app/index.html",
   },
   {
     slug: "wild-acacia-lodge",
