@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl, lastModified, changeFrequency: "monthly", priority: 1 },
     { url: `${siteUrl}/work/mckay-plant-hire`, lastModified, changeFrequency: "yearly", priority: 0.8 },
     { url: `${siteUrl}/work/the-grand-house`, lastModified, changeFrequency: "yearly", priority: 0.8 },
-    { url: `${siteUrl}/work/little-acacia`, lastModified, changeFrequency: "yearly", priority: 0.8 }
+    { url: `${siteUrl}/work/little-acacia`, lastModified, changeFrequency: "yearly", priority: 0.8 },
+    { url: `${siteUrl}/cv`, lastModified, changeFrequency: "yearly", priority: 0.6 }
   ];
 }

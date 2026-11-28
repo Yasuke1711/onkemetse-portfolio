@@ -65,7 +65,7 @@ The first pass establishes the page architecture and visual language: Home, Abou
 ## Phase two additions
 
 - Three dedicated project case studies live at `/work/mckay-plant-hire`, `/work/the-grand-house` and `/work/little-acacia`.
-- A downloadable copy of the current CV is served from `/cv/Onkemetse-Khavara-CV.pdf`.
+- A print-ready CV is available at `/cv`, with a browser print/save-to-PDF action.
 - The contact form posts to `/api/contact`. Configure `RESEND_API_KEY`, `CONTACT_TO_EMAIL` and a verified `CONTACT_FROM_EMAIL` in Vercel to enable server-side delivery. If delivery is not configured, the form prepares an email in the visitor's email app instead.
 - Canonical metadata, social-sharing metadata, structured person data, robots rules and a sitemap are included.
 - Website concepts remain explicitly labelled as concepts. Their sample rates, inventory, room details and enquiry interactions are not represented as live booking services.
