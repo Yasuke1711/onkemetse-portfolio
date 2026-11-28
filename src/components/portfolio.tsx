@@ -245,7 +245,7 @@ function CurrencyPricing() {
   const selected = currencies.find((item) => item.code === currency) ?? currencies[0];
   const priceRows = [
     { label: "Starter", amount: 2500, description: "A focused, professional website for a small business." },
-    { label: "Business", amount: 4500, description: "More pages, richer content and additional functionality." },
+    { label: "Business", amount: 6000, description: "More pages, richer content and additional functionality." },
     { label: "Custom", amount: 9000, description: "A more involved website shaped around your requirements." },
   ];
 
