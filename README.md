@@ -54,8 +54,8 @@ src/
 - Replace or curate the remote Unsplash photographs with properly licensed assets for the final demos. The current images are visual placeholders.
 - The currency selector requests indicative exchange rates through `/api/rates`, backed by ExchangeRate-API Open Access (`open.er-api.com`). The server caches the source response for 24 hours. Provider attribution is linked in the pricing section. If the service is unavailable or does not provide a rate for a currency, the UI falls back to an unavailable/quote-on-request state. The provider permits commercial conversion but prohibits redistribution of raw rate data. Agree the actual quotation currency with each client; displayed conversions are not contract prices.
 - Zimbabwe Gold (ZiG / ZWG) may not be available from the exchange-rate provider. USD remains available as an alternative display currency.
-- Set `NEXT_PUBLIC_CONTACT_EMAIL` in `.env.local` before launch. The contact form creates a pre-filled email; it does not send messages to a server.
-- Update the Open Graph metadata and add the confirmed production domain once one has been selected.
+- The contact form posts to `/api/contact`. Configure `RESEND_API_KEY`, `CONTACT_TO_EMAIL` and a verified `CONTACT_FROM_EMAIL` in Vercel to enable server-side delivery. Until those values are configured, the form prepares an email in the visitor's email app instead.
+- Canonical and social-sharing metadata currently use `https://onkemetse-portfolio.vercel.app`. Update this when a custom production domain is selected.
 - Do not reuse the original tutorial author's Sanity project ID, dataset or credentials. A separate Sanity project can be configured later if a CMS becomes useful.
 
 ## Design direction

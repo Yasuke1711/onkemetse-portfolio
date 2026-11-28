@@ -360,7 +360,7 @@ export default function Portfolio() {
 
     const openEmailFallback = (reason: string) => {
       const subject = encodeURIComponent(`Project enquiry from ${name || "portfolio visitor"}`);
-      const body = encodeURIComponent(`Name: ${name}\\nEmail: ${email}\\nProject: ${projectType}\\n\\n${message}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nProject: ${projectType}\n\n${message}`);
       window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
       setFormStatus(reason);
     };

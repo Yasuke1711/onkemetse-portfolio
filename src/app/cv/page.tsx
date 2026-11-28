@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import CvActions from "./cv-actions";
 import "./cv.css";
 
@@ -18,7 +19,7 @@ const skills = [
   ["Additional", "Desktop application development, software architecture, digital product development, UI/UX design, technical research, system design"],
 ];
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children }: { title: string; children: ReactNode }) {
   return <section className="cv-section"><h2>{title}</h2>{children}</section>;
 }
 

@@ -64,7 +64,7 @@ export async function POST(request: Request) {
   const textBody = [
     "New portfolio enquiry", "", `Name: ${name}`, `Email: ${email}`,
     `Project: ${projectType}`, "", message
-  ].join("\\n");
+  ].join("\n");
 
   try {
     const response = await fetch("https://api.resend.com/emails", {

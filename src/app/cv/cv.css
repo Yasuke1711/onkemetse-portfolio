@@ -33,6 +33,7 @@
 .cv-entry p { margin:4px 0 7px; color:#414858; font-size:11px; line-height:1.65; }
 .cv-entry .cv-status { color:#626978; font-size:10px; font-style:italic; }
 .cv-dot { padding:0 5px; color:#aab1c0; }
+.cv-page-break { display:none; }
 .cv-footer { margin-top:32px; padding-top:13px; border-top:1px solid #d9deea; color:#7d8491; font-size:9px; }
 .cv-footer span { color:#4856a6; }
 @media(max-width:720px) {
@@ -52,6 +53,6 @@
   .cv-section h2,.cv-entry-heading { break-after:avoid; }
   .cv-entry,.cv-skill,.cv-section { break-inside:avoid; }
   .cv-skill { background:#f7f8fc !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .cv-page-break { display:block; }
+  .cv-page-break { display:block; break-before:page; page-break-before:always; }
   .cv-footer { break-inside:avoid; }
 }
