@@ -441,21 +441,24 @@ export default function Portfolio() {
       <section className="about-section page-section" id="about">
         <div className="section-heading">
           <Reveal><p className="eyebrow">A LITTLE ABOUT ME</p><h2>Curiosity was<br /><em>the starting point.</em></h2></Reveal>
-          <Reveal delay={0.1}><p className="section-intro">I&apos;ve been programming since my early teens. What started as an attempt to build a personal AI assistant grew into a long-running interest in software, systems and the things we can make with them.</p></Reveal>
+          <Reveal delay={0.1}><p className="section-intro">I started with Python and a small attempt at building a personal AI assistant. That curiosity has since grown into work across desktop software, web applications, AI-integrated systems and independent technical research.</p></Reveal>
         </div>
         <div className="about-grid">
           <Reveal className="about-story">
-            <p>Python was my first language. At around 13, I wanted to build my own version of Jarvis. The first attempt was a small chatbot, not quite the assistant I had imagined, but it gave me a reason to keep learning.</p>
-            <p>Since then, I&apos;ve worked on independent projects, taken on smaller development work and completed a Bachelor of Science in Computer Science through University of the People.</p>
-            <p>These days, I&apos;m interested in building useful digital products, exploring new technologies and solving problems that sit somewhere between software and the real world.</p>
+            <p>At around 13, I wanted to build my own version of Jarvis. The first attempt was a simple chatbot, but it gave me a reason to keep learning. I wanted to understand not just how to use software, but how the systems behind it worked.</p>
+            <p>That curiosity now takes shape in a few different ways. I created Infinite Game Master, an AI-driven roleplaying engine, and I am building The Bind Suite, a family of creative desktop applications. InkBind and SketchBind are functionally usable, while ComicBind is in development.</p>
+            <p>I also developed OmniTech independently for the Google Gemini Hackathon: a camera-based field-safety assistant using Gemini Vision, structured safety classifications and safeguards. I completed a Bachelor of Science in Computer Science through University of the People in 2026, alongside introductory quantum computing studies through The Coding School (IBM).</p>
+            <p>My interests continue beyond application development into AI architecture, persistent memory, computational intelligence and robotics. M.A.R.K. is one expression of that curiosity: an independent research concept for an AI research and engineering companion.</p>
             <a className="text-link text-link-blue" href="#skills">Explore my toolkit</a>
           </Reveal>
           <Reveal delay={0.12} className="timeline-card">
             <p className="eyebrow">A FEW MILESTONES</p>
-            <div className="timeline-item"><span className="timeline-pin" /><div><b>Independent programming</b><p>Started experimenting with Python, chatbots and personal software projects in my early teens.</p></div></div>
-            <div className="timeline-item"><span className="timeline-pin" /><div><b>Computer Science graduate</b><p>Bachelor of Science in Computer Science · University of the People.</p></div></div>
-            <div className="timeline-item"><span className="timeline-pin" /><div><b>Google hackathon participant</b><p>Joined a practical development challenge and learned through building with a team.</p></div></div>
-            <div className="timeline-item"><span className="timeline-pin timeline-pin-current" /><div><b>Technology & operations</b><p>Chief Technology & Operations Officer at McKay & Co Plant Hire.</p></div></div>
+            <div className="timeline-item"><span className="timeline-pin" /><div><b>Where it began</b><p>Started with Python, chatbots and an early attempt at building a personal AI assistant.</p></div></div>
+            <div className="timeline-item"><span className="timeline-pin" /><div><b>Computer Science graduate</b><p>Bachelor of Science in Computer Science · University of the People · Completed 2026.</p></div></div>
+            <div className="timeline-item"><span className="timeline-pin" /><div><b>OmniTech · independent hackathon entry</b><p>Developed a Gemini Vision field-safety assistant independently for the Google Gemini Hackathon, with SAFE, DANGER and UNCERTAIN states, safety safeguards, Firebase logging and text-to-speech.</p></div></div>
+            <div className="timeline-item"><span className="timeline-pin" /><div><b>Creator of The Bind Suite</b><p>Building a creative software ecosystem. InkBind and SketchBind are functionally usable; ComicBind is in development.</p></div></div>
+            <div className="timeline-item"><span className="timeline-pin" /><div><b>Quantum computing foundations</b><p>Introduction to Quantum Computing · The Coding School (IBM).</p></div></div>
+            <div className="timeline-item"><span className="timeline-pin timeline-pin-current" /><div><b>Technology &amp; operations</b><p>Chief Technology &amp; Operations Officer at McKay &amp; Co Plant Hire, contributing to technology development, digital infrastructure and operational planning.</p></div></div>
           </Reveal>
         </div>
       </section>
