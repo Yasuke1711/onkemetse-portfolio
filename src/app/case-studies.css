@@ -14,7 +14,7 @@
 .case-eyebrow { margin:0 0 18px; color:var(--case-accent); font-size:10px; font-weight:700; letter-spacing:.16em; line-height:1.5; text-transform:uppercase; }
 .case-hero-copy h1 { margin:0; max-width:950px; font:700 clamp(48px,8vw,96px)/.98 var(--display); letter-spacing:-.075em; }
 .case-subtitle { max-width:650px; margin:24px 0 0; color:var(--case-muted); font-size:clamp(16px,2vw,21px); line-height:1.7; }
-.case-hero-image { position:relative; height:clamp(300px,54vw,620px); border-radius:26px; overflow:hidden; background:#dce2f0; }
+.case-hero-image { position:relative; width:min(100%,480px); aspect-ratio:480 / 369; margin-right:auto; border-radius:26px; overflow:hidden; background:#dce2f0; }
 .case-hero-image img { object-fit:cover; }
 .case-image-note { position:absolute; right:18px; bottom:18px; max-width:calc(100% - 36px); padding:9px 12px; border:1px solid rgba(255,255,255,.45); border-radius:99px; background:rgba(24,29,43,.58); color:#fff; font-size:10px; backdrop-filter:blur(12px); }
 .case-overview { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(250px,.6fr); gap:clamp(40px,8vw,110px); padding-top:112px; padding-bottom:118px; }
@@ -69,7 +69,7 @@
   .case-back-link { font-size:10px; }
   .case-hero { padding-top:26px; }
   .case-hero-copy { padding:50px 0 30px; }
-  .case-hero-image { height:320px; border-radius:18px; }
+  .case-hero-image { width:min(100%,480px); height:auto; aspect-ratio:480 / 369; border-radius:18px; }
   .case-image-note { right:10px; bottom:10px; font-size:9px; }
   .case-contribution { padding:72px 0; }
   .case-contribution-grid { grid-template-columns:1fr; }
