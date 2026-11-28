@@ -2020,3 +2020,14 @@ body {
   .project-rail-sticky { position: relative; height: auto; min-height: 0; }
   .project-rail-track { transform: none !important; }
 }
+
+
+/* A single selected-work result should be presented as a feature, not a pinned journey. */
+.project-rail-single { min-height: auto; }
+.project-rail-single .project-rail-sticky {
+  position: relative;
+  height: auto;
+  min-height: 0;
+  padding-block: 42px;
+}
+.project-rail-single .project-rail-track { transform: none !important; }

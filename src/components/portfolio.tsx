@@ -153,7 +153,7 @@ function ProjectRail({ items }: { items: Project[] }) {
   return (
     <section
       ref={railRef}
-      className={`project-rail${reduceMotion ? " project-rail-reduced" : ""}`}
+      className={`project-rail${reduceMotion ? " project-rail-reduced" : ""}${items.length === 1 ? " project-rail-single" : ""}`}
       aria-label="Featured projects"
     >
       <div className="project-rail-sticky">
