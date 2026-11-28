@@ -356,6 +356,7 @@ export default function Portfolio() {
     const projectType = String(form.get("projectType") ?? "Website enquiry");
     const message = String(form.get("message") ?? "").trim();
     const companyWebsite = String(form.get("companyWebsite") ?? "").trim();
+    const formElement = event.currentTarget;
 
     const openEmailFallback = (reason: string) => {
       const subject = encodeURIComponent(`Project enquiry from ${name || "portfolio visitor"}`);
@@ -380,7 +381,7 @@ export default function Portfolio() {
       const result = (await response.json()) as { ok?: boolean; code?: string };
       if (response.ok && result.ok) {
         setFormStatus("Thanks. Your enquiry has been sent, and I will get back to you.");
-        event.currentTarget.reset();
+        formElement.reset();
       } else if (result.code === "not_configured") {
         openEmailFallback("The online inbox is being connected. Your enquiry has been prepared in your email app instead.");
       } else {
@@ -490,7 +491,7 @@ export default function Portfolio() {
             <p>My interests continue beyond application development into AI architecture, persistent memory, computational intelligence and robotics. M.A.R.K. is one expression of that curiosity: an independent research concept for an AI research and engineering companion.</p>
             <div className="about-actions">
               <a className="text-link text-link-blue" href="#skills">Explore my toolkit</a>
-              <a className="button button-outline" href="/cv/Onkemetse-Khavara-CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
+              <a className="button button-outline" href="/cv">View CV <span aria-hidden="true">↗</span></a>
             </div>
           </Reveal>
           <Reveal delay={0.12} className="timeline-card">
