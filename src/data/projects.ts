@@ -21,6 +21,7 @@ export type Project = {
   accent: string;
   tags: string[];
   featured?: boolean;
+  caseStudy?: boolean;
   url?: string;
 };
 
@@ -39,6 +40,7 @@ export const projects: Project[] = [
     accent: "#b89556",
     tags: ["Next.js", "TypeScript", "Business website"],
     featured: true,
+    caseStudy: true,
     url: "https://mckay-co-public-website-next.vercel.app/",
   },
   {
@@ -92,6 +94,7 @@ export const projects: Project[] = [
     accent: "#8b6659",
     tags: ["Boutique hotel", "Booking journey", "P6,000 package"],
     featured: true,
+    caseStudy: true,
     url: "https://the-grand-house.vercel.app/",
   },
   {
@@ -106,6 +109,7 @@ export const projects: Project[] = [
     accent: "#b79a69",
     tags: ["Flagship hospitality", "P9,000+ custom", "Stay enquiry"],
     featured: true,
+    caseStudy: true,
     url: "https://little-acacia-weld.vercel.app/index.html",
   },
   {
