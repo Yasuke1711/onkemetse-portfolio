@@ -456,8 +456,8 @@ export default function Portfolio() {
             <div className="timeline-item"><span className="timeline-pin" /><div><b>Where it began</b><p>Started with Python, chatbots and an early attempt at building a personal AI assistant.</p></div></div>
             <div className="timeline-item"><span className="timeline-pin" /><div><b>Computer Science graduate</b><p>Bachelor of Science in Computer Science · University of the People · Completed 2026.</p></div></div>
             <div className="timeline-item"><span className="timeline-pin" /><div><b>OmniTech · independent hackathon entry</b><p>Developed a Gemini Vision field-safety assistant independently for the Google Gemini Hackathon, with SAFE, DANGER and UNCERTAIN states, safety safeguards, Firebase logging and text-to-speech.</p></div></div>
-            <div className="timeline-item"><span className="timeline-pin" /><div><b>Creator of The Bind Suite</b><p>Building a creative software ecosystem. InkBind and SketchBind are functionally usable; ComicBind is in development.</p></div></div>
-            <div className="timeline-item"><span className="timeline-pin" /><div><b>Quantum computing foundations</b><p>Introduction to Quantum Computing · The Coding School (IBM).</p></div></div>
+            <div className="timeline-item"><span className="timeline-pin" /><div><b>Creator of The Bind Suite</b><p>Building a ten-application creative software ecosystem. InkBind and SketchBind are functionally usable; ComicBind is in development.</p></div></div>
+            <div className="timeline-item"><span className="timeline-pin" /><div><b>Quantum computing foundations</b><p>Introduction to Quantum Computing · The Coding School (IBM); Introduction to Aerospace Structures &amp; Materials · edX.</p></div></div>
             <div className="timeline-item"><span className="timeline-pin timeline-pin-current" /><div><b>Technology &amp; operations</b><p>Chief Technology &amp; Operations Officer at McKay &amp; Co Plant Hire, contributing to technology development, digital infrastructure and operational planning.</p></div></div>
           </Reveal>
         </div>
